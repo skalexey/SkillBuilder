@@ -1,0 +1,16 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+<file>./fonts/fonts.txt</file>
+<file>./images/place_holder.png</file>
+<file>./imports/SkillBuilderUI/Constants.qml</file>
+<file>./imports/SkillBuilderUI/DirectoryFontLoader.qml</file>
+<file>./imports/SkillBuilderUI/EventListModel.qml</file>
+<file>./imports/SkillBuilderUI/EventListSimulator.qml</file>
+<file>./imports/SkillBuilderUI/qmldir</file>
+<file>./qtquickcontrols2.conf</file>
+<file>./Screen01.ui.qml</file>
+<file>./SkillBuilderUI.qml</file>
+<file>./SkillBuilderUI.qmlproject.qtds</file>
+<file>./BodyBlock.qml</file>
+</qresource>
+</RCC>
