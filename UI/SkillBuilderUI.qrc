@@ -12,5 +12,7 @@
 <file>./SkillBuilderUI.qml</file>
 <file>./SkillBuilderUI.qmlproject.qtds</file>
 <file>./BodyBlock.qml</file>
+<file>./imports/QVL/qmldir</file>
+<file>./Skill.qml</file>
 </qresource>
 </RCC>

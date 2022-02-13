@@ -4,6 +4,7 @@ import QVL 1.0
 import SkillBuilderUI 1.0
 
 Window {
+	id: root
 	width: Constants.width
 	height: Constants.height
 	visible: true
@@ -11,27 +12,20 @@ Window {
 
 	QtObject {
 		id: local
+		property string databasePath: "database.json"
 		property bool loadError: false;
-	}
-
-	DMBModel {
-		id: dmbModel
-		loadFrom: "database.json"
-		onInstantiateRefused: function(error) {
-			console.log("Instantiate refused: " + error);
-		}
-		onModelLoaded: function(f) {
-			uiRoot.onModelLoaded(f);
-		}
-		onModelLoadError: function(e) {
+		property var modelLoadError: function(error) {
 			if (!local.loadError)
 			{
 				local.loadError = true;
-				dmbModel.store(fPath);
-				dmbModel.load(fPath);
+				dmbModel.store(databasePath);
+				dmbModel.load(databasePath);
 			}
 			else
-				uiRoot.onModelLoadError(e);
+				uiRoot.modelLoadError(e);
+		}
+		property var modelLoaded: function(f) {
+			console.log("Database loaded from '" + f + "'");
 		}
 	}
 
@@ -39,12 +33,26 @@ Window {
 		id: uiRoot
 		width: root.width
 		height: root.height
-		property var onModelLoadError: function(error) {
-			console.log("Load database error: " + error);
+
+		property var modelLoadError: function(e) {
+			bodyBlock.stateLoadDatabaseError();
 		}
+
+		dmbModel: DMBModel {
+			loadFrom: "database.json"
+			onModelLoaded: function(f) {
+				console.log("Database loaded from '" + currentFile + "'");
+				local.modelLoaded(f);
+			}
+			onModelLoadError: function(f, e) {
+				console.log("Database load error: '" + e + "'");
+				local.modelLoadError(f, e);
+			}
+		}
+
 		Component.onCompleted: {
 			if (!dmbModel.isLoaded)
-				bodyBlock.stateLoadDatabaseError();
+				local.modelLoadError();
 			//else
 				//bodyBlock.stateLoaded();
 		}

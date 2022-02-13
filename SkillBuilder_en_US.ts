@@ -31,14 +31,14 @@
 <context>
     <name>DataModelBuilderUI</name>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="240"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="240"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="252"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="252"/>
         <source>Store</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="247"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="247"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="259"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="259"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -89,15 +89,15 @@
     </message>
     <message>
         <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="84"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="189"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="190"/>
         <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="84"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="189"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="190"/>
         <source>Expand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="198"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="198"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="199"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/ParamValue.qml" line="199"/>
         <source>Collapse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -132,14 +132,8 @@
 <context>
     <name>SkillBuilderUI</name>
     <message>
-        <location filename="UI/SkillBuilderUI.qml" line="18"/>
-        <location filename="UI/SkillBuilderUI.qml" line="18"/>
-        <source>Store</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="UI/SkillBuilderUI.qml" line="25"/>
-        <location filename="UI/SkillBuilderUI.qml" line="25"/>
+        <location filename="UI/SkillBuilderUI.qml" line="32"/>
+        <location filename="UI/SkillBuilderUI.qml" line="32"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -156,7 +150,7 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="main.qml" line="10"/>
+        <location filename="main.qml" line="11"/>
         <source>Hello World</source>
         <translation type="unfinished"></translation>
     </message>

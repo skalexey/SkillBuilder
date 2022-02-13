@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QVL 1.0
 
 Item {
 	id: bodyBlock
@@ -23,10 +24,30 @@ Item {
 		height: parent.height
 		visible: false
 
-		Button {
-			anchors.horizontalCenter: parent.horizontalCenter
-			anchors.verticalCenter: parent.verticalCenter
-			text: "Hello"
+		Column {
+			id: leftBlock
+			width: parent.width * 0.25
+			height: parent.height
+
+			Text {
+				id: skillLibraryTitle
+				text: "Skill library"
+				anchors.horizontalCenter: parent.horizontalCenter
+			}
+
+			ListView {
+				width: parent.width
+				implicitHeight: contentItem.childrenRect.height
+				id: skillLibraryList
+				model: dmbModel.contentModel.get("skillLibrary").listModel
+				delegate: Skill {
+					model: value
+				}
+			}
+			Text {
+				id: sdi
+				text: dmbModel.contentModel.get("skillLibrary").listModel.rowCount();
+			}
 		}
 	}
 
@@ -65,6 +86,6 @@ Item {
 
 /*##^##
 Designer {
-	D{i:0;formeditorZoom:0.66}D{i:2}D{i:1}D{i:4}D{i:3}
+	D{i:0;formeditorZoom:0.66}D{i:3}D{i:4}D{i:2}D{i:1}D{i:7}D{i:6}
 }
 ##^##*/
