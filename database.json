@@ -1,0 +1,35 @@
+{
+    "content": {
+        "rootSkill": {
+            "proto": "Skill"
+        },
+        "skillLibrary": [
+            {
+                "proto": "Skill",
+                "name": "Development"
+            },
+            {
+                "proto": "Skill",
+                "name": "Organisation"
+            },
+            {
+                "proto": "Skill",
+                "name": "Learning"
+            }
+        ]
+    },
+    "types": {
+        "Skill": {
+            "frameImgPath": "",
+            "name": "",
+            "description": "",
+            "iconPath": "",
+            "children": []
+        },
+        "SkillWithLevel": {
+            "proto": "Skill",
+            "level": 0.0
+        }
+    },
+    "private": {}
+}

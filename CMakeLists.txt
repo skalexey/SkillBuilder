@@ -1,22 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
 
-macro(configure_files srcDir destDir)
-    message(STATUS "Configuring directory ${destDir}")
-    message(STATUS "Copy from ${srcDir}")
-    make_directory(${destDir})
-    file(GLOB templateFiles RELATIVE ${srcDir} ${srcDir}/*)
-    foreach(templateFile ${templateFiles})
-        set(srcTemplatePath ${srcDir}/${templateFile})
-        if(NOT IS_DIRECTORY ${srcTemplatePath})
-            message(STATUS "Configuring file ${templateFile}")
-            configure_file(
-                    ${srcTemplatePath}
-                    ${destDir}/${templateFile}
-                    COPYONLY)
-        endif(NOT IS_DIRECTORY ${srcTemplatePath})
-    endforeach(templateFile)
-endmacro(configure_files)
-
 project(SkillBuilder VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -40,6 +23,7 @@ file(GLOB sources CONFIGURE_DEPENDS "src/*" "include/*")
 set(PROJECT_SOURCES
         main.cpp
         qml.qrc
+        database.json
         ${TS_FILES}
         ${sources}
         UI/SkillBuilderUI.qrc
@@ -97,9 +81,14 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(SkillBuilder)
 endif()
 
-message("Copy QVL artifacts")
-configure_files(${CMAKE_CURRENT_SOURCE_DIR}/dependencies/DataModelBuilder/QVL/Build-cmake-${CMAKE_BUILD_TYPE}/${CMAKE_BUILD_TYPE} ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/QVL)
-configure_file(dependencies/DataModelBuilder/QVL/Build-cmake-${CMAKE_BUILD_TYPE}/qvl.qmltypes ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/QVL/ COPYONLY)
-configure_file(dependencies/DataModelBuilder/QVL/Build-cmake-${CMAKE_BUILD_TYPE}/qmldir ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/QVL/ COPYONLY)
-configure_file(dependencies/DataModelBuilder/QVL/Build-cmake-${CMAKE_BUILD_TYPE}/qmldir ${CMAKE_CURRENT_SOURCE_DIR}/imports/QVL/qmldir  COPYONLY)
-configure_file(dependencies/DataModelBuilder/QVL/Build-cmake-${CMAKE_BUILD_TYPE}/qvl.qmltypes ${CMAKE_CURRENT_SOURCE_DIR}/imports/QVL/qvl.qmltypes COPYONLY)
+add_custom_command(
+    TARGET SkillBuilder POST_BUILD
+    COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/deliver_qvl.sh ${CMAKE_CFG_INTDIR} "${CMAKE_CURRENT_SOURCE_DIR}"
+    VERBATIM
+)
+
+add_custom_command(
+    TARGET SkillBuilder POST_BUILD
+    COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/deliver_resources.sh ${CMAKE_CFG_INTDIR} "${CMAKE_CURRENT_SOURCE_DIR}"
+    VERBATIM
+)
