@@ -23,7 +23,7 @@ file(GLOB sources CONFIGURE_DEPENDS "src/*" "include/*")
 set(PROJECT_SOURCES
         main.cpp
         qml.qrc
-        database.json
+	resources/resources.qrc
         ${TS_FILES}
         ${sources}
         UI/SkillBuilderUI.qrc
@@ -80,6 +80,12 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_import_qml_plugins(SkillBuilder)
     qt_finalize_executable(SkillBuilder)
 endif()
+
+#add_custom_command(
+#    TARGET SkillBuilder PRE_BUILD
+#    COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/construct_resources_qrc.sh "${CMAKE_CURRENT_SOURCE_DIR}"
+#    VERBATIM
+#)
 
 add_custom_command(
     TARGET SkillBuilder POST_BUILD

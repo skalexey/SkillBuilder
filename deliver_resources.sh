@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 buildFolder="Build-cmake"
-databaseFile="database.json"
+databaseFile="resources/database.json"
 
 curDir=$PWD
 

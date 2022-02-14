@@ -5,11 +5,13 @@ Row {
 	property var model
 	width: parent.width
 	height: 80
-	Rectangle {
-		width: 50
-		height: 50
-		color: "green"
+	BorderImage {
+		id: borderImage
+		width: 60
+		height: 60
+		source: model.get("frameImgPath").value
 	}
+
 	Text {
 		text: model.get("name").value
 	}

@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+<file>border.png</file>
+<file>./database.json</file>
+<file>./development.png</file>
+</qresource>
+</RCC>
