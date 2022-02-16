@@ -6,15 +6,18 @@
         "skillLibrary": [
             {
                 "proto": "Skill",
-                "name": "Development"
+				"name": "Development",
+				"iconPath": "../resources/development.png"
             },
             {
                 "proto": "Skill",
-                "name": "Organisation"
+				"name": "Organisation",
+				"iconPath": "../resources/organisation.png"
             },
             {
                 "proto": "Skill",
-                "name": "Learning"
+				"name": "Learning",
+				"iconPath": "../resources/learning.png"
             }
         ]
     },

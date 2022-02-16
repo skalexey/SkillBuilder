@@ -12,7 +12,11 @@
 <file>./SkillBuilderUI.qml</file>
 <file>./SkillBuilderUI.qmlproject.qtds</file>
 <file>./BodyBlock.qml</file>
-<file>./imports/QVL/qmldir</file>
 <file>./Skill.qml</file>
+<file>./designer-database.json</file>
+<file>./Field.qml</file>
+<file>./resources/border.png</file>
+<file>./resources/development.png</file>
+<file>./MainBlock.qml</file>
 </qresource>
 </RCC>

@@ -18,37 +18,8 @@ Item {
 		state = "loadDatabaseError";
 	}
 
-	Item {
+	MainBlock {
 		id: mainBlock
-		width: parent.width
-		height: parent.height
-		visible: false
-
-		Column {
-			id: leftBlock
-			width: parent.width * 0.25
-			height: parent.height
-
-			Text {
-				id: skillLibraryTitle
-				text: "Skill library"
-				anchors.horizontalCenter: parent.horizontalCenter
-			}
-
-			ListView {
-				width: parent.width
-				implicitHeight: contentItem.childrenRect.height
-				id: skillLibraryList
-				model: dmbModel.contentModel.get("skillLibrary").listModel
-				delegate: Skill {
-					model: value
-				}
-			}
-			Text {
-				id: sdi
-				text: dmbModel.contentModel.get("skillLibrary").listModel.rowCount();
-			}
-		}
 	}
 
 	Item {
@@ -86,6 +57,6 @@ Item {
 
 /*##^##
 Designer {
-	D{i:0;formeditorZoom:0.66}D{i:3}D{i:4}D{i:2}D{i:1}D{i:7}D{i:6}
+	D{i:0;formeditorZoom:0.66}D{i:1}D{i:3}D{i:2}
 }
 ##^##*/
