@@ -18,5 +18,6 @@
 <file>./resources/border.png</file>
 <file>./resources/development.png</file>
 <file>./MainBlock.qml</file>
+<file>./logic.js</file>
 </qresource>
 </RCC>

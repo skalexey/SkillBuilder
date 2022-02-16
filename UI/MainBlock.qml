@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import "logic.js" as Logic
 
 Row {
 	id: mainBlock
@@ -37,69 +38,20 @@ Row {
 					width: parent.width
 					height: parent.height
 
-					QtObject {
-						id: local
-						property var draggableItem: null
-						function createDraggableItem(from, dragHandler) {
-							var c = null;
-							function create() {
-	//							console.log("Create component PropListBlock.qml");
-								c = Qt.createComponent("Skill.qml");
-								if (c.status === Component.Ready)
-									finishCreation();
-								else
-								{
-	//								console.log("Creation is not ready yet. Wait")
-									c.statusChanged.connect(finishCreation);
-								}
-							}
-
-							function finishCreation() {
-	//							console.log("finish creation")
-								if (c.status === Component.Ready)
-								{
-									//console.log("finishCreation");
-									local.draggableItem = c.createObject(skillLibraryList, {
-										model: from.model,
-										fieldRef: field,
-										x: listItem.x,
-										y: listItem.y
-									});
-									local.draggableItem.startDrag(mouseArea.drag);
-									if (dragHandler)
-										dragHandler.target = local.draggableItem;
-
-								}
-								else if (c.status === Component.Error)
-									// Error Handling
-									console.log("Error loading component:", c.errorString());
-							}
-							create();
-						}
-						function destroyDraggableItem(dragHandler) {
-							if (draggableItem)
-							{
-								// Stop the drag before destoying
-								draggableItem.stopDrag();
-								draggableItem.destroy();
-								draggableItem = null;
-								if (dragHandler)
-									dragHandler.target = null;
-								console.log("draggableItem destroyed")
-							}
-						}
-					}
-
 					drag.target: null
 					onPressed: function(mouse) {
 						console.log("Skill cell pressed");
-						local.createDraggableItem(skill, drag);
+						Logic.createSkill(skill, function(createdSkill) {
+							createdSkill.x = listItem.x;
+							createdSkill.y = listItem.y;
+							Logic.initDrag(createdSkill, drag);
+						});
 					}
 
 					drag.onActiveChanged: function() {
 						console.log("MouseArea.drag.onActiveChanged(" + drag.active + ")");
 						if (!drag.active)
-							local.destroyDraggableItem(drag);
+							Logic.destroyDraggableItem(drag);
 					}
 
 					Skill {
