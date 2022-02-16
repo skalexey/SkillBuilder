@@ -32,6 +32,11 @@ Project {
 		filter: "*.ttf;*.otf"
 	}
 
+	Files {
+		filter: "designer-database.json"
+		directory: "."
+	}
+
 	Environment {
 		QT_QUICK_CONTROLS_CONF: "qtquickcontrols2.conf"
 		QT_AUTO_SCREEN_SCALE_FACTOR: "1"
