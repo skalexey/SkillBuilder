@@ -5,7 +5,6 @@ Row {
 	id: skill
 	property var model
 	property int currentCell: -1
-	property var fieldRef: null
 
 	property var onDropped: function(i) {
 		console.log("Skill.onDropped(" + i + ")");

@@ -18,7 +18,9 @@ fi
 
 buildConfigFolder="$buildFolder/$buildConfig/"
 
-rm "${buildConfigFolder}database.json"
-echo "Copy '$databaseFile' to the build config folder $buildConfigFolder"
-cp -r "$databaseFile" "$buildConfigFolder"
+echo "Nothing to do for now"
+
+#rm "${buildConfigFolder}database.json"
+#echo "Copy '$databaseFile' to the build config folder $buildConfigFolder"
+#cp -r "$databaseFile" "$buildConfigFolder"
 

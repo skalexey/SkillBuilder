@@ -1,10 +1,12 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
+<file>./accuracy.png</file>
 <file>./border.png</file>
 <file>./database.json</file>
 <file>./development.png</file>
 <file>./learning.png</file>
 <file>./organisation.png</file>
+<file>./productivity.png</file>
 <file>./resources.qrc</file>
 </qresource>
 </RCC>

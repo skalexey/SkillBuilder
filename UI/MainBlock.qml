@@ -41,7 +41,7 @@ Row {
 					drag.target: null
 					onPressed: function(mouse) {
 						console.log("Skill cell pressed");
-						Logic.createSkill(skill, function(createdSkill) {
+						Logic.createSkill(skill, skillLibraryList, function(createdSkill, skillLibraryList) {
 							createdSkill.x = listItem.x;
 							createdSkill.y = listItem.y;
 							Logic.initDrag(createdSkill, drag);
@@ -57,7 +57,6 @@ Row {
 					Skill {
 						id: skill
 						model: value
-						fieldRef: field
 					}
 				}
 			}

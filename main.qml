@@ -12,7 +12,7 @@ Window {
 
 	QtObject {
 		id: local
-		property string databasePath: "database.json"
+		property string databasePath: "../../resources/database.json"
 		property bool loadError: false;
 		property var modelLoadError: function(error) {
 			if (!local.loadError)
@@ -39,7 +39,7 @@ Window {
 		}
 
 		dmbModel: DMBModel {
-			loadFrom: "database.json"
+			loadFrom: local.databasePath
 			onModelLoaded: function(f) {
 				console.log("Database loaded from '" + currentFile + "'");
 				local.modelLoaded(f);

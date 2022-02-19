@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQml.Models
 import SkillBuilderUI 1.0
+import "logic.js" as Logic
 
 ScrollView {
 	width: parent.width
@@ -43,7 +44,16 @@ ScrollView {
 				onDropped: function(drop) {
 					console.log("Dropped at " + visualIndex);
 					onDragEnd(drag);
-					(drop.source as Skill).onDropped(visualIndex);
+					var skillItem = (drop.source as Skill);
+					skillItem.onDropped(visualIndex);
+
+					var o = dmbModel.createObject();
+					o.setPrototype(skillItem.model);
+					o.set("position", visualIndex);
+					var r = dmbModel.contentModel.get("rootSkill").get("children").add(o);
+					dmbModel.store();
+					Logic.placeSkill(grid, r);
+
 				}
 
 				property int visualIndex: DelegateModel.itemsIndex
@@ -55,6 +65,36 @@ ScrollView {
 					height: parent.height
 				}
 			}
+		}
+
+
+	}
+
+	Component.onCompleted: function() {
+		var rootSkill = dmbModel.contentModel.get("rootSkill");
+		if (rootSkill)
+		{
+			var rootSkillList = rootSkill.get("children");
+			if (rootSkillList)
+			{
+				var listModel = rootSkillList.listModel;
+				var sz = listModel.rowCount();
+				console.log(sz + " skills in the tree");
+				for (var i = 0; i < sz; i++)
+				{
+					var m = listModel.at(i);
+					console.log("Iterate skill in the tree: '" + m.get("name").value + "' at position " + m.get("position").value);
+					Logic.placeSkill(grid, m);
+				}
+			}
+			else
+			{
+				console.log("Error! There is no 'children' field in the rootSkill node");
+			}
+		}
+		else
+		{
+			console.log("Error! There is no skill tree (rootSkill) in the content");
 		}
 	}
 }
