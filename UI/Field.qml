@@ -29,31 +29,41 @@ ScrollView {
 				width: Constants.cellHeight;
 				height: Constants.cellHeight
 
-				function onDragEnd(drag) {
+//				QtObject {
+//					id: local
+//					property var enteredItem: null
+//				}
+
+				function onDragEnd() {
 					cellBg.color = cellColor;
 				}
 
 				onEntered: function(drag) {
+					console.log("onEntered(" + visualIndex + ")");
+					console.log("this.drag.coord: " + this.drag.x + ", " + this.drag.y);
 					cellBg.color = "steelblue";
+					var enteredItem = drag.source as Skill;
+					enteredItem.currentCell = visualIndex;
 				}
 
-				onExited: function(drag) {
-					onDragEnd(drag);
+				onExited: function() {
+					console.log("onExited(" + visualIndex + ")");
+					var enteredItem = drag.source as Skill;
+					if (enteredItem)
+					{
+						if (enteredItem.currentCell === visualIndex)
+							enteredItem.currentCell = -1;
+						//local.enteredItem = null;
+					}
+					onDragEnd();
 				}
 
 				onDropped: function(drop) {
 					console.log("Dropped at " + visualIndex);
-					onDragEnd(drag);
+					onDragEnd();
 					var skillItem = (drop.source as Skill);
 					skillItem.onDropped(visualIndex);
-
-					var o = dmbModel.createObject();
-					o.setPrototype(skillItem.model);
-					o.set("position", visualIndex);
-					var r = dmbModel.contentModel.get("rootSkill").get("children").add(o);
-					dmbModel.store();
-					Logic.placeSkill(grid, r);
-
+					Logic.placeSkill(grid, skillItem.model);
 				}
 
 				property int visualIndex: DelegateModel.itemsIndex
@@ -66,8 +76,6 @@ ScrollView {
 				}
 			}
 		}
-
-
 	}
 
 	Component.onCompleted: function() {
@@ -83,7 +91,7 @@ ScrollView {
 				for (var i = 0; i < sz; i++)
 				{
 					var m = listModel.at(i);
-					console.log("Iterate skill in the tree: '" + m.get("name").value + "' at position " + m.get("position").value);
+					console.log("Iterate skill in the tree: '" + m.get("name").value + "' at position " + m.get("x").value + ", " + m.get("y").value);
 					Logic.placeSkill(grid, m);
 				}
 			}

@@ -19,5 +19,6 @@
 <file>./resources/development.png</file>
 <file>./MainBlock.qml</file>
 <file>./logic.js</file>
+<file>./SkillLibrary.qml</file>
 </qresource>
 </RCC>

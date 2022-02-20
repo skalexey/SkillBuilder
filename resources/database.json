@@ -6,51 +6,97 @@
                 {
                     "proto": "Skill",
                     "name": "Accuracy",
+                    "x": 5.0,
                     "iconPath": "accuracy.png",
-                    "position": 4.0
+                    "y": 7.0
                 },
                 {
                     "proto": "Skill",
                     "name": "Productivity",
+                    "x": 5.0,
                     "iconPath": "productivity.png",
-                    "position": 36.0
+                    "y": 6.0
                 },
                 {
                     "proto": "content.skillLibrary.[1]",
+                    "x": 3.0,
                     "iconPath": "productivity.png",
-                    "position": 62.0
-                },
-                {
-                    "proto": "content.skillLibrary.[2]",
-                    "position": 103.0
-                },
-                {
-                    "proto": "content.skillLibrary.[0]",
-                    "position": 105.0
-                },
-                {
-                    "proto": "content.skillLibrary.[2]",
-                    "position": 45.0
-                },
-                {
-                    "proto": "content.skillLibrary.[0]",
-                    "position": 87.0
-                },
-                {
-                    "proto": "content.skillLibrary.[0]",
-                    "position": 62.0
-                },
-                {
-                    "proto": "content.skillLibrary.[0]",
-                    "position": 81.0
+                    "y": 2.0
                 },
                 {
                     "proto": "content.skillLibrary.[1]",
-                    "position": 27.0
+                    "x": 0.0,
+                    "y": 1.0
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 3.0,
+                    "y": "3"
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 0.0,
+                    "y": "0"
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 2.0,
+                    "y": "1"
+                },
+                {
+                    "proto": "content.skillLibrary.[1]",
+                    "x": 7.0,
+                    "y": "3"
                 },
                 {
                     "proto": "content.skillLibrary.[2]",
-                    "position": 112.0
+                    "x": 5.0,
+                    "y": "4"
+                },
+                {
+                    "proto": "content.skillLibrary.[2]",
+                    "x": 1.0,
+                    "y": "5"
+                },
+                {
+                    "proto": "content.skillLibrary.[2]",
+                    "x": 3.0,
+                    "y": "5"
+                },
+                {
+                    "proto": "content.skillLibrary.[1]",
+                    "x": 10.0,
+                    "y": "4"
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 10.0,
+                    "y": "0"
+                },
+                {
+                    "proto": "content.skillLibrary.[1]",
+                    "x": 7.0,
+                    "y": "7"
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 3.0,
+                    "y": "0"
+                },
+                {
+                    "proto": "content.skillLibrary.[2]",
+                    "x": 1.0,
+                    "y": "7"
+                },
+                {
+                    "proto": "content.skillLibrary.[1]",
+                    "x": 6.0,
+                    "y": "4"
+                },
+                {
+                    "proto": "content.skillLibrary.[1]",
+                    "x": 0.0,
+                    "y": "2"
                 }
             ]
         },
@@ -74,8 +120,8 @@
     },
     "types": {
         "Skill": {
-            "name": "",
             "frameImgPath": "border.png",
+            "name": "",
             "description": "",
             "iconPath": "",
             "children": []
