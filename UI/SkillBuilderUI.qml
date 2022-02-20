@@ -10,6 +10,9 @@ Item {
 
 	property alias bodyBlock: bodyBlock
 	property var skillLibraryModel: dmbModel.contentModel.get("skillLibrary")
+	property var rootSkillModel: function() {
+		return dmbModel.contentModel.get("rootSkill");
+	}
 	property var dmbModel: DMBModel {
 		loadFrom: "designer-database.json"
 		onModelLoaded: function(f) {

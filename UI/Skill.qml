@@ -7,17 +7,28 @@ Row {
 	id: skill
 	property var model
 	property int currentCell: -1
+	property string origin: "unknown"
 
 	property var onDropped: function(i) {
-		console.log("Skill.onDropped(" + i + ")");
-		var o = dmbModel.createObject();
-		o.setPrototype(model);
+		console.log("Skill.onDropped(" + i + ") from '" + origin + "'");
+		console.log("model.typeId: " + model.typeId);
+		console.log("model.protoId: " + model.protoId);
 		var coord = Logic.getCoord(i);
-		o.set("x", coord.x);
-		o.set("y", coord.y);
-		var r = dmbModel.contentModel.get("rootSkill").get("children").add(o);
+
+		if (origin === "library")
+		{
+			var o = dmbModel.createObject();
+			o.setPrototype(model);
+			o.set("x", coord.x);
+			o.set("y", coord.y);
+			model = rootSkillModel().get("children").add(o);
+		}
+		else
+		{
+			model.set("x", coord.x);
+			model.set("y", coord.y);
+		}
 		dmbModel.store();
-		model = r;
 		console.log("Name: " + model.get("name").value);
 	}
 

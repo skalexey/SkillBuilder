@@ -132,8 +132,8 @@
 <context>
     <name>SkillBuilderUI</name>
     <message>
-        <location filename="UI/SkillBuilderUI.qml" line="32"/>
-        <location filename="UI/SkillBuilderUI.qml" line="32"/>
+        <location filename="UI/SkillBuilderUI.qml" line="35"/>
+        <location filename="UI/SkillBuilderUI.qml" line="35"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>

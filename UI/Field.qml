@@ -26,7 +26,7 @@ ScrollView {
 	}
 
 	Component.onCompleted: function() {
-		var rootSkill = dmbModel.contentModel.get("rootSkill");
+		var rootSkill = rootSkillModel();
 		if (rootSkill)
 		{
 			var rootSkillList = rootSkill.get("children");

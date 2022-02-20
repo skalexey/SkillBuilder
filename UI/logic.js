@@ -32,6 +32,7 @@ function placeSkill(grid, model, itemOrOnCreated) {
 		Logic.createSkillWithModel(model, cell, function(createdSkill) {
 			console.log("Skill at position (" + x + ", " + y + ") created");
 			cell.attachedSkill = createdSkill;
+			createdSkill.origin = "field";
 			if (onCreated)
 				onCreated(createdSkill);
 		});

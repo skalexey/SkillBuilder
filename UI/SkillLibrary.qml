@@ -72,6 +72,7 @@ Column {
 						Logic.createSkill(skill, skillLibraryList, function(createdSkill) {
 							createdSkill.x = listItem.x;
 							createdSkill.y = listItem.y;
+							createdSkill.origin = "library";
 							Logic.initDrag(createdSkill, drag);
 						});
 					}

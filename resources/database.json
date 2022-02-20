@@ -4,22 +4,18 @@
             "proto": "Skill",
             "children": [
                 {
-                    "proto": "Skill",
-                    "name": "Accuracy",
-                    "x": 5.0,
-                    "iconPath": "accuracy.png",
-                    "y": 7.0
-                },
-                {
-                    "proto": "Skill",
-                    "name": "Productivity",
-                    "x": 5.0,
-                    "iconPath": "productivity.png",
-                    "y": 6.0
-                },
-                {
                     "proto": "content.skillLibrary.[1]",
-                    "x": 7.0,
+                    "x": 5.0,
+                    "y": "4"
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 1.0,
+                    "y": "5"
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 9.0,
                     "y": "7"
                 }
             ]
@@ -28,7 +24,9 @@
             {
                 "proto": "Skill",
                 "name": "Development",
-                "iconPath": "development.png"
+                "x": 2.0,
+                "iconPath": "development.png",
+                "y": "2"
             },
             {
                 "proto": "Skill",
@@ -44,8 +42,8 @@
     },
     "types": {
         "Skill": {
-            "frameImgPath": "border.png",
             "name": "",
+            "frameImgPath": "border.png",
             "description": "",
             "iconPath": "",
             "children": []

@@ -21,6 +21,7 @@ Item {
 	}
 
 	MouseArea {
+		id: mouseArea
 		width: parent.width
 		height: parent.height
 		acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -52,6 +53,27 @@ Item {
 			MenuItem {
 				text: "Remove"
 				onClicked: removeCell()
+			}
+		}
+
+		drag.target: attachedSkill
+
+		drag.onActiveChanged: function() {
+			if (drag.active)
+			{
+				if (attachedSkill)
+				{
+					console.log("attachedSkill detached");
+					attachedSkill.parent = grid;
+					attachedSkill.startDrag();
+				}
+			}
+			else
+			{
+				console.log("Cell: skill drag stop");
+				attachedSkill.stopDrag();
+				attachedSkill.destroy();
+				attachedSkill = null;
 			}
 		}
 
@@ -99,5 +121,6 @@ Item {
 			}
 		}
 	}
+	Drag.active: attachedSkill ? mouseArea.drag.active : false
 }
 
