@@ -20,5 +20,6 @@
 <file>./MainBlock.qml</file>
 <file>./logic.js</file>
 <file>./SkillLibrary.qml</file>
+<file>./Cell.qml</file>
 </qresource>
 </RCC>

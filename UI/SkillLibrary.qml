@@ -46,11 +46,6 @@ Column {
 					id: dummyTarget
 					width: 50
 					height: 50
-					Rectangle {
-						width: 50
-						height: 50
-						color: "green"
-					}
 				}
 
 				drag.target: null
