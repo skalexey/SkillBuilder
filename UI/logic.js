@@ -10,7 +10,13 @@ function getCellIndex(x, y) {
 	return y * Constants.fieldSize + x;
 }
 
-function placeSkill(grid, model, item) {
+function placeSkill(grid, model, itemOrOnCreated) {
+	var item = null;
+	var onCreated = null;
+	if (typeof itemOrOnCreated === "object")
+		item = itemOrOnCreated;
+	else if (typeof itemOrOnCreated === "function")
+		onCreated = itemOrOnCreated;
 	var x = model.get("x").value;
 	var y = model.get("y").value;
 	var pos = getCellIndex(x, y);
@@ -24,7 +30,10 @@ function placeSkill(grid, model, item) {
 	else
 	{
 		Logic.createSkillWithModel(model, cell, function(createdSkill) {
-			console.log("Skill at position " + pos + " created");
+			console.log("Skill at position (" + x + ", " + y + ") created");
+			cell.attachedSkill = createdSkill;
+			if (onCreated)
+				onCreated(createdSkill);
 		});
 	}
 }

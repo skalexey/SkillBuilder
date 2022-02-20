@@ -17,7 +17,7 @@ Column {
 		id: skillLibraryList
 		width: parent.width
 		implicitHeight: contentItem.childrenRect.height
-		model: dmbModel.contentModel.get("skillLibrary").listModel
+		model: skillLibraryModel.listModel
 
 		delegate: Item {
 			// The item holder (to let the skill be detached from it)
@@ -50,7 +50,7 @@ Column {
 
 				drag.target: null
 				onPressed: function(mouse) {
-					console.log("Skill cell pressed");
+					console.log("Skill in library pressed");
 					drag.target = dummyTarget;
 				}
 				onReleased: function(mouse) {
@@ -69,7 +69,7 @@ Column {
 					}
 					else
 					{
-						Logic.createSkill(skill, skillLibraryList, function(createdSkill, skillLibraryList) {
+						Logic.createSkill(skill, skillLibraryList, function(createdSkill) {
 							createdSkill.x = listItem.x;
 							createdSkill.y = listItem.y;
 							Logic.initDrag(createdSkill, drag);

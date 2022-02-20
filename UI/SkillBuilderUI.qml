@@ -9,7 +9,7 @@ Item {
 	height: Constants.height
 
 	property alias bodyBlock: bodyBlock
-	property var skillLibraryModel: [1, 2, 3]
+	property var skillLibraryModel: dmbModel.contentModel.get("skillLibrary")
 	property var dmbModel: DMBModel {
 		loadFrom: "designer-database.json"
 		onModelLoaded: function(f) {
