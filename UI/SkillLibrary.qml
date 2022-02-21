@@ -84,5 +84,11 @@ Column {
 				}
 			}
 		}
+		footer: Item {
+			Button {
+				text: qsTr("New")
+				onClicked: onNewSkillClicked();
+			}
+		}
 	}
 }

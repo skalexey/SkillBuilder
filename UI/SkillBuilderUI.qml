@@ -4,9 +4,12 @@ import QtQuick.Controls
 import QtQuick.Window
 import QVL 1.0
 
-Item {
+Window {
+	id: root
 	width: Constants.width
 	height: Constants.height
+	visible: true
+	title: "SkillBuilder"
 
 	property alias bodyBlock: bodyBlock
 	property var skillLibraryModel: dmbModel.contentModel.get("skillLibrary")
@@ -21,6 +24,10 @@ Item {
 		onModelLoadError: function(f, e) {
 			console.log("Database load error: '" + e + "'");
 		}
+	}
+
+	property var onNewSkillClicked: function() {
+		skillCreationDialog.show();
 	}
 
 	Screen01 {
@@ -59,4 +66,7 @@ Item {
 		}
 	}
 
+	SkillCreationDialog {
+		id: skillCreationDialog
+	}
 }
