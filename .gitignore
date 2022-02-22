@@ -1,3 +1,5 @@
 dependencies
 Build-cmake
 /imports
+CMakeLists.txt.user
+UI/SkillBuilderUI.qmlproject.qtds
