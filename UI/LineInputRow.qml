@@ -1,30 +1,27 @@
 import QtQuick
 import QtQuick.Controls
 
-Column {
+Row {
 	id: row
 	width: parent.width
-	height: 200
+
 	property alias textInput: textInput
 	property alias enteredText: textInput.text
-	property alias placeholderText: textInput.placeholderText
 	property string title: qsTr("Row")
 
 	Text {
 		id: textLabel
 		text: title
+		anchors.verticalCenter: parent.verticalCenter
 	}
 
 	Item {
-		width: parent.width
-		height: 12
+		width: 12
+		height: parent.height
 	}
 
-
-	TextArea {
+	TextField {
 		id: textInput
-		height: 100
-		width: parent.width
-		focus: true
+		anchors.verticalCenter: parent.verticalCenter
 	}
 }

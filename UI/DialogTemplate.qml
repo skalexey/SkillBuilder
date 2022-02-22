@@ -4,22 +4,28 @@ import QtQuick.Controls
 Dialog {
 	id: dialog
 	title: qsTr("Title")
-	property var onShow: function() {}
-	property var show: function() {
-		visible = true;
-		onShow();
+	property var dialogTemplate_onShow: function() {
+
 	}
+	property var dialogTemplate_show: function() {
+		visible = true;
+		if (onShow)
+			onShow();
+	}
+	property var onShow: dialogTemplate_onShow
+	property var show: dialogTemplate_show
 	property string buttonOkText: qsTr("Ok")
 	property string buttonCancelText: qsTr("Cancel")
 	property var onOk: function() {
-		console.log("DialogTemplate.onOk default handler");
+		//console.log("DialogTemplate.onOk default handler");
+		return true;
 	}
 	property var onCancel: function() {
-		console.log("DialogTemplate.onCancel default handler");
+		//console.log("DialogTemplate.onCancel default handler");
 	}
 
 	onClosed: function() {
-		console.log("DialogTemplate.onClosed default handler");
+		//console.log("DialogTemplate.onClosed default handler");
 	}
 
 	modal: true
@@ -39,8 +45,8 @@ Dialog {
 			width: parent.width / 2 - 20;
 			anchors.left: parent.left
 			onClicked: function(mouse) {
-				onOk();
-				dialog.close();
+				if (onOk())
+					dialog.close();
 			}
 		}
 		Button {

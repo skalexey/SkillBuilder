@@ -24,5 +24,14 @@
 <file>./SkillCreationDialog.qml</file>
 <file>./ChooseFileDialog.qml</file>
 <file>./DialogTemplate.qml</file>
+<file>./FileInputRow.qml</file>
+<file>./TextInputRow.qml</file>
+<file>./SkillInfoDialog.qml</file>
+<file>./LineInputRow.qml</file>
+<file>./SkillInLibrary.qml</file>
+<file>./DialogMessage.qml</file>
+<file>./DialogRemoveSkillWarning.qml</file>
+<file>./InteractiveListElement.qml</file>
+<file>./InteractiveListView.qml</file>
 </qresource>
 </RCC>

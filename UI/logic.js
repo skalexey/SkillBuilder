@@ -1,6 +1,61 @@
 var createdSkill = null;
 var draggableItem = null;
 
+function removeAllSkillsOfType(skillModel, rootSkillModel) {
+	var skillName = skillModel.get("name").value
+	var children = rootSkillModel.get("children")
+	var l = [];
+	if (children)
+	{
+		var listModel = rootSkillModel.get("children").listModel;
+		var sz = listModel.rowCount();
+		for (var i = 0; i < sz; i++)
+		{
+			var m = listModel.at(i);
+			if (m.get("name").value === skillName)
+				l.push(m);
+			removeAllSkillsOfType(skillModel, m);
+		}
+	}
+	else
+	{
+		console.log("Error! Funcion removeAllSkillsOfType can't iterate children of a skill '" + rootSkillModel.get("name").value
+					+ "' of type '" + rootSkillModel.typeId
+					+ "' and with proto '" + rootSkillModel.protoId
+		+ "'");
+	}
+	for (var i = 0; i < l.length; i++)
+		l[i].remove();
+	return false;
+}
+
+function hasSkill(skillModel, rootSkillModel) {
+	var skillName = skillModel.get("name").value
+	var children = rootSkillModel.get("children")
+	if (children)
+	{
+		var listModel = rootSkillModel.get("children").listModel;
+		var sz = listModel.rowCount();
+		for (var i = 0; i < sz; i++)
+		{
+			var m = listModel.at(i);
+			if (m.get("name").value === skillName)
+				return true;
+			if (hasSkill(skillModel, m))
+				return true;
+		}
+	}
+	else
+	{
+		console.log("Error! Funcion hasSkill can't iterate children of a skill '" + rootSkillModel.get("name").value
+					+ "' of type '" + rootSkillModel.typeId
+					+ "' and with proto '" + rootSkillModel.protoId
+		+ "'");
+	}
+
+	return false;
+}
+
 function getCoord(cellIndex) {
 	return {"x": cellIndex % Constants.fieldSize,
 			"y": parseInt(cellIndex / Constants.fieldSize) };

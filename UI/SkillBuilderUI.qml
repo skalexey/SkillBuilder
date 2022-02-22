@@ -69,4 +69,12 @@ Window {
 	SkillCreationDialog {
 		id: skillCreationDialog
 	}
+
+	SkillInfoDialog {
+		id: skillInfoDialog
+	}
+
+	DialogRemoveSkillWarning {
+		id: dialogRemoveSkillWarning
+	}
 }

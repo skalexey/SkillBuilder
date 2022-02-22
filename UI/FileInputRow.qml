@@ -7,7 +7,7 @@ Row {
 
 	property var chosenFile
 	property string title: qsTr("Row")
-	property var chosenFilePath: chosenFileInput.text
+	property alias chosenFilePath: chosenFileInput.text
 
 	Text {
 		id: textLabel
