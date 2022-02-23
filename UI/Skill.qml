@@ -11,8 +11,6 @@ Row {
 
 	property var onDropped: function(i) {
 		console.log("Skill.onDropped(" + i + ") from '" + origin + "'");
-		console.log("model.typeId: " + model.typeId);
-		console.log("model.protoId: " + model.protoId);
 		var coord = Logic.getCoord(i);
 
 		if (origin === "library")
@@ -29,7 +27,6 @@ Row {
 			model.set("y", coord.y);
 		}
 		dmbModel.store();
-		console.log("Name: " + model.get("name").value);
 	}
 
 	function activeChanged() {
