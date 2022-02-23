@@ -46,14 +46,14 @@
 <context>
     <name>DialogRemoveSkillWarning</name>
     <message>
-        <location filename="UI/DialogRemoveSkillWarning.qml" line="5"/>
-        <location filename="UI/DialogRemoveSkillWarning.qml" line="5"/>
+        <location filename="UI/DialogRemoveSkillWarning.qml" line="6"/>
+        <location filename="UI/DialogRemoveSkillWarning.qml" line="6"/>
         <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/DialogRemoveSkillWarning.qml" line="6"/>
-        <location filename="UI/DialogRemoveSkillWarning.qml" line="6"/>
+        <location filename="UI/DialogRemoveSkillWarning.qml" line="7"/>
+        <location filename="UI/DialogRemoveSkillWarning.qml" line="7"/>
         <source>This skill has instances in the field. Do you really want to remove it with all it&apos;s instances?</source>
         <translation type="unfinished"></translation>
     </message>
