@@ -3,21 +3,29 @@
         "rootSkill": {
             "proto": "Skill",
             "children": [
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 6.0,
+                    "y": 2.0
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 7.0,
+                    "y": 2.0
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 8.0,
+                    "y": 2.0
+                }
             ]
         },
         "skillLibrary": [
             {
                 "proto": "Skill",
-                "name": "Development",
-                "iconPath": "../resources/development.png",
-                "x": 2.0,
-                "y": "2"
-            },
-            {
-                "proto": "Skill",
                 "description": "",
-                "name": "Learning",
-                "iconPath": "../resources/learning.png"
+                "name": "Agility",
+                "iconPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/accuracy.png"
             }
         ]
     },
