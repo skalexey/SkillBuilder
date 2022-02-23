@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import "logic.js" as Logic
 
 InteractiveListElement {
 	// The item holder (to let the skill be detached from it)
@@ -48,17 +47,17 @@ InteractiveListElement {
 			{
 				var item = drag.target as Skill;
 //						if (item.currentCell < 0)
-					Logic.destroyDraggableItem(drag);
+					logic.destroyDraggableItem(drag);
 //						else
-//							Logic.stopDrag(drag);
+//							logic.stopDrag(drag);
 			}
 			else
 			{
-				Logic.createSkill(skill, skillLibraryList, function(createdSkill) {
+				logic.createSkill(skill, skillLibraryList, function(createdSkill) {
 					createdSkill.x = listItem.x;
 					createdSkill.y = listItem.y;
 					createdSkill.origin = "library";
-					Logic.initDrag(createdSkill, drag);
+					logic.initDrag(createdSkill, drag);
 				});
 			}
 		}
@@ -71,7 +70,7 @@ InteractiveListElement {
 
 	function removeSkill() {
 		// TODO: replace rootSkillModel() with rootSkillModel
-		if (Logic.hasSkill(skill.model, rootSkillModel()))
+		if (logic.hasSkill(skill.model, rootSkillModel()))
 			dialogRemoveSkillWarning.show(skill.model);
 		else
 		{

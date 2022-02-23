@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Controls
 import QtQml.Models
 import SkillBuilderUI 1.0
-import "logic.js" as Logic
 
 ScrollView {
 	width: parent.width
@@ -39,7 +38,7 @@ ScrollView {
 				{
 					var m = listModel.at(i);
 					console.log("Iterate skill in the tree: '" + m.get("name").value + "' at position " + m.get("x").value + ", " + m.get("y").value);
-					Logic.placeSkill(grid, m);
+					logic.placeSkill(grid, m);
 				}
 			}
 			else

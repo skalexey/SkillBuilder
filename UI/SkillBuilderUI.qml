@@ -3,14 +3,16 @@ import SkillBuilderUI 1.0
 import QtQuick.Controls
 import QtQuick.Window
 import QVL 1.0
+import "logic.js" as Logic
 
-Window {
+Item {
 	id: root
 	width: Constants.width
 	height: Constants.height
-	visible: true
-	title: "SkillBuilder"
+//	visible: true
+//	title: "SkillBuilder"
 
+	property var logic: Logic
 	property alias bodyBlock: bodyBlock
 	property var skillLibraryModel: dmbModel.contentModel.get("skillLibrary")
 	property var rootSkillModel: function() {

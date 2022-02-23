@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import "logic.js" as Logic
 
 DialogMessage {
 	title: qsTr("Warning!")
@@ -15,7 +14,7 @@ DialogMessage {
 	}
 	onOk: function() {
 		console.log("removeAllSkillsOfType");
-		Logic.removeAllSkillsOfType(skillModel, rootSkillModel());
+		logic.removeAllSkillsOfType(skillModel, rootSkillModel());
 		console.log("skillModel.remove();")
 		skillModel.remove();
 		dmbModel.store();

@@ -1,5 +1,106 @@
+console.log("Import logic.js");
+
 var createdSkill = null;
 var draggableItem = null;
+var suggestedPlaces = [];
+var hidePlaceSuggestionsInterval = null;
+var suggestedPlaceUsers = [];
+
+function placeSuggestionsActive() {
+	return suggestedPlaces.length > 0;
+}
+
+function setInterval(f, d) {
+	function Timer() {
+		return Qt.createQmlObject("import QtQuick; Timer {}", root);
+	}
+
+	var timer = new Timer();
+	timer.interval = d;
+	timer.repeat = true;
+	timer.triggered.connect(f);
+
+	timer.start();
+	return timer;
+}
+
+function clearInterval(timer) {
+	timer.stop();
+}
+
+function isTheOnlySuggestionsUser(cell) {
+	return suggestedPlaceUsers.length == 1
+			&& suggestedPlaceUsers.indexOf(cell) >= 0;
+}
+
+function addSuggestionsUser(user) {
+	suggestedPlaceUsers.push(user);
+	if (hidePlaceSuggestionsInterval)
+	{
+		clearInterval(hidePlaceSuggestionsInterval);
+		hidePlaceSuggestionsInterval = null;
+	}
+}
+
+function removeSuggestionsUser(user) {
+	var index = suggestedPlaceUsers.indexOf(user);
+	if (index >= 0)
+		suggestedPlaceUsers.splice(index, 1);
+}
+
+function isSuggestedCell(cell) {
+	return suggestedPlaces.indexOf(cell) >= 0;
+}
+
+function showPlaceSuggestions(grid, cell) {
+	if (suggestedPlaces.length > 0)
+		hidePlaceSuggestions();
+
+	addSuggestionsUser(cell);
+
+	function checkAndPushCell(x, y) {
+		var index = getCellIndex(x, y);
+		var c = grid.children[index];
+		if (!c.attachedSkill)
+		{
+			suggestedPlaces.push(c);
+			c.state = "suggested";
+		}
+	}
+
+	var x = cell.attachedSkill.model.get("x").value;
+	var y = cell.attachedSkill.model.get("y").value;
+	var index = getCellIndex(x, y);
+
+	if (x > 0 && x < Constants.fieldSize)
+		checkAndPushCell(x - 1, y); // Left
+	if (x >= 0 && x < (Constants.fieldSize - 1))
+		checkAndPushCell(x + 1, y); // Right
+	if (y > 0 && y < Constants.fieldSize)
+		checkAndPushCell(x, y - 1); // Top
+	if (y >= 0 && y < (Constants.fieldSize - 1))
+		checkAndPushCell(x, y + 1); // bottom
+}
+
+function hidePlaceSuggestions(delayed) {
+	function job() {
+		if (hidePlaceSuggestionsInterval)
+		{
+			clearInterval(hidePlaceSuggestionsInterval);
+			hidePlaceSuggestionsInterval = null;
+		}
+
+		for (var i = 0; i < suggestedPlaces.length; i++)
+			suggestedPlaces[i].state = "base";
+		suggestedPlaces = [];
+		suggestedPlaceUsers = [];
+	}
+
+	if (delayed)
+		hidePlaceSuggestionsInterval = setInterval(job, 1);
+	else
+		job();
+}
 
 function removeAllSkillsOfType(skillModel, rootSkillModel) {
 	var skillName = skillModel.get("name").value
@@ -84,7 +185,7 @@ function placeSkill(grid, model, itemOrOnCreated) {
 	}
 	else
 	{
-		Logic.createSkillWithModel(model, cell, function(createdSkill) {
+		createSkillWithModel(model, cell, function(createdSkill) {
 			console.log("Skill at position (" + x + ", " + y + ") created");
 			cell.attachedSkill = createdSkill;
 			createdSkill.origin = "field";

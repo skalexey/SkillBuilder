@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 import SkillBuilderUI 1.0
-import "logic.js" as Logic
 
 Row {
 	id: skill
@@ -11,7 +10,7 @@ Row {
 
 	property var onDropped: function(i) {
 		console.log("Skill.onDropped(" + i + ") from '" + origin + "'");
-		var coord = Logic.getCoord(i);
+		var coord = logic.getCoord(i);
 
 		if (origin === "library")
 		{

@@ -1,13 +1,12 @@
 import QtQuick
 import QtQuick.Controls
 import SkillBuilderUI
-import "logic.js" as Logic
 
 Item {
 	id: root
 	width: Constants.cellHeight;
 	height: Constants.cellHeight
-
+	state: "base"
 	property string cellColor: "#dbeeff"
 	property int visualIndex: DelegateModel.itemsIndex
 	property var attachedSkill: null
@@ -84,6 +83,14 @@ Item {
 			height: parent.height
 		}
 
+		Rectangle {
+			id: suggestionBg
+			color: "#6896ff"
+			width: parent.width
+			height: parent.height
+			visible: false
+		}
+
 		DropArea {
 			width: parent.width
 			height: parent.height
@@ -97,6 +104,12 @@ Item {
 				cellBg.color = "steelblue";
 				var enteredItem = drag.source as Skill;
 				enteredItem.currentCell = visualIndex;
+				if (attachedSkill)
+					logic.showPlaceSuggestions(grid, root);
+				else if (logic.isSuggestedCell(root))
+					logic.addSuggestionsUser(root);
+				else if (logic.placeSuggestionsActive())
+					logic.hidePlaceSuggestions();
 			}
 
 			onExited: function() {
@@ -108,19 +121,37 @@ Item {
 						enteredItem.currentCell = -1;
 				}
 				onDragEnd();
+				if (logic.isTheOnlySuggestionsUser(root))
+					logic.hidePlaceSuggestions(true);
+				else
+					logic.removeSuggestionsUser(root);
 			}
 
 			onDropped: function(drop) {
 				console.log("Dropped at " + visualIndex);
 				onDragEnd();
+				logic.hidePlaceSuggestions();
 				var skillItem = (drop.source as Skill);
 				skillItem.onDropped(visualIndex);
-				Logic.placeSkill(grid, skillItem.model, function(createdItem) {
+				logic.placeSkill(grid, skillItem.model, function(createdItem) {
 					attachedSkill = createdItem;
 				});
 			}
 		}
 	}
+	states: [
+		State {
+			name: "base"
+		},
+		State {
+			name: "suggested"
+
+			PropertyChanges {
+				target: suggestionBg
+				visible: true
+			}
+		}
+	]
 	Drag.active: attachedSkill ? mouseArea.drag.active : false
 }
 
