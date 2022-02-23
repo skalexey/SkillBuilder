@@ -88,6 +88,9 @@ function placeSkill(grid, model, itemOrOnCreated) {
 			console.log("Skill at position (" + x + ", " + y + ") created");
 			cell.attachedSkill = createdSkill;
 			createdSkill.origin = "field";
+			model.beforeRemove.connect(function() {
+				createdSkill.destroy();
+			});
 			if (onCreated)
 				onCreated(createdSkill);
 		});
