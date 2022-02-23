@@ -74,7 +74,10 @@ InteractiveListElement {
 		if (Logic.hasSkill(skill.model, rootSkillModel()))
 			dialogRemoveSkillWarning.show(skill.model);
 		else
+		{
 			skill.model.remove();
+			dmbModel.store();
+		}
 	}
 
 	function editSkill() {
