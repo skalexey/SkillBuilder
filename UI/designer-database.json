@@ -5,18 +5,51 @@
             "children": [
                 {
                     "proto": "content.skillLibrary.[0]",
-                    "x": 6.0,
-                    "y": 2.0
-                },
-                {
-                    "proto": "content.skillLibrary.[0]",
-                    "x": 7.0,
-                    "y": 2.0
-                },
-                {
-                    "proto": "content.skillLibrary.[0]",
-                    "x": 8.0,
-                    "y": 2.0
+                    "x": 2.0,
+                    "y": 6.0,
+                    "children": [
+                        {
+                            "proto": "content.skillLibrary.[0]",
+                            "x": 2.0,
+                            "y": 4.0,
+                            "children": [
+                                {
+                                    "proto": "content.skillLibrary.[0]",
+                                    "x": 3.0,
+                                    "y": 4.0,
+                                    "children": [
+                                        {
+                                            "proto": "content.skillLibrary.[0]",
+                                            "x": 5.0,
+                                            "y": 5.0,
+                                            "children": [
+                                                {
+                                                    "proto": "content.skillLibrary.[0]",
+                                                    "x": 1.0,
+                                                    "y": 5.0,
+                                                    "children": [
+                                                        {
+                                                            "proto": "content.skillLibrary.[0]",
+                                                            "x": 3.0,
+                                                            "y": 6.0,
+                                                            "children": [
+                                                                {
+                                                                    "proto": "content.skillLibrary.[0]",
+                                                                    "x": 3.0,
+                                                                    "y": 7.0,
+                                                                    "children": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -31,8 +64,8 @@
     },
     "types": {
         "Skill": {
-            "frameImgPath": "../resources/border.png",
             "name": "",
+            "frameImgPath": "../resources/border.png",
             "description": "",
             "iconPath": "",
             "children": []

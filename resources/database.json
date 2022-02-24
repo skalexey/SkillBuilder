@@ -5,13 +5,41 @@
             "children": [
                 {
                     "proto": "content.skillLibrary.[0]",
-                    "x": 4.0,
-                    "y": 2.0
+                    "x": 7.0,
+                    "y": 4.0,
+                    "children": []
                 },
                 {
                     "proto": "content.skillLibrary.[0]",
-                    "x": 7.0,
-                    "y": 3.0
+                    "x": 6.0,
+                    "y": 6.0,
+                    "children": []
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "x": 3.0,
+                    "y": 2.0,
+                    "children": [
+                        {
+                            "proto": "content.skillLibrary.[0]",
+                            "x": 1.0,
+                            "y": 2.0,
+                            "children": [
+                                {
+                                    "proto": "content.skillLibrary.[0]",
+                                    "x": 3.0,
+                                    "y": 5.0,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "proto": "content.skillLibrary.[0]",
+                            "x": 2.0,
+                            "y": 4.0,
+                            "children": []
+                        }
+                    ]
                 }
             ]
         },
@@ -19,8 +47,8 @@
             {
                 "proto": "Skill",
                 "description": "",
-                "name": "Programming",
-                "iconPath": "file:///C:/Users/skoro/Downloads/programming-icon-png-6.jpg"
+                "name": "Agility",
+                "iconPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/accuracy.png"
             }
         ]
     },
