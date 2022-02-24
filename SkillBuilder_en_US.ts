@@ -11,6 +11,14 @@
     </message>
 </context>
 <context>
+    <name>Cell</name>
+    <message>
+        <location filename="UI/Cell.qml" line="24"/>
+        <source>Warning!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ContentBlock.ui</name>
     <message>
         <location filename="dependencies/DataModelBuilder/Client/UI/ContentBlock.ui.qml" line="12"/>
@@ -44,37 +52,19 @@
     </message>
 </context>
 <context>
-    <name>DialogRemoveSkillWarning</name>
-    <message>
-        <location filename="UI/DialogRemoveSkillWarning.qml" line="6"/>
-        <location filename="UI/DialogRemoveSkillWarning.qml" line="6"/>
-        <source>Warning!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="UI/DialogRemoveSkillWarning.qml" line="7"/>
-        <location filename="UI/DialogRemoveSkillWarning.qml" line="7"/>
-        <source>This skill has instances in the field. Do you really want to remove it with all it&apos;s instances?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DialogTemplate</name>
     <message>
-        <location filename="UI/DialogTemplate.qml" line="6"/>
         <location filename="UI/DialogTemplate.qml" line="6"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/DialogTemplate.qml" line="17"/>
-        <location filename="UI/DialogTemplate.qml" line="17"/>
+        <location filename="UI/DialogTemplate.qml" line="20"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/DialogTemplate.qml" line="18"/>
-        <location filename="UI/DialogTemplate.qml" line="18"/>
+        <location filename="UI/DialogTemplate.qml" line="21"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -92,7 +82,6 @@
     <name>FileInputRow</name>
     <message>
         <location filename="UI/FileInputRow.qml" line="9"/>
-        <location filename="UI/FileInputRow.qml" line="9"/>
         <source>Row</source>
         <translation type="unfinished"></translation>
     </message>
@@ -100,7 +89,6 @@
 <context>
     <name>LineInputRow</name>
     <message>
-        <location filename="UI/LineInputRow.qml" line="10"/>
         <location filename="UI/LineInputRow.qml" line="10"/>
         <source>Row</source>
         <translation type="unfinished"></translation>
@@ -187,7 +175,6 @@
     <name>SkillBuilderUI</name>
     <message>
         <location filename="UI/SkillBuilderUI.qml" line="42"/>
-        <location filename="UI/SkillBuilderUI.qml" line="42"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -196,15 +183,21 @@
     <name>SkillCreationDialog</name>
     <message>
         <location filename="UI/SkillCreationDialog.qml" line="5"/>
-        <location filename="UI/SkillCreationDialog.qml" line="5"/>
         <source>New skill creation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SkillInLibrary</name>
+    <message>
+        <location filename="UI/SkillInLibrary.qml" line="79"/>
+        <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SkillInfoDialog</name>
     <message>
-        <location filename="UI/SkillInfoDialog.qml" line="5"/>
         <location filename="UI/SkillInfoDialog.qml" line="5"/>
         <source>Skill info</source>
         <translation type="unfinished"></translation>
@@ -214,7 +207,6 @@
     <name>SkillLibrary</name>
     <message>
         <location filename="UI/SkillLibrary.qml" line="27"/>
-        <location filename="UI/SkillLibrary.qml" line="27"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
@@ -222,7 +214,6 @@
 <context>
     <name>TextInputRow</name>
     <message>
-        <location filename="UI/TextInputRow.qml" line="11"/>
         <location filename="UI/TextInputRow.qml" line="11"/>
         <source>Row</source>
         <translation type="unfinished"></translation>
