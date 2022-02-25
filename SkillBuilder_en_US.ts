@@ -13,8 +13,8 @@
 <context>
     <name>Cell</name>
     <message>
-        <location filename="UI/Cell.qml" line="24"/>
-        <location filename="UI/Cell.qml" line="24"/>
+        <location filename="UI/Cell.qml" line="29"/>
+        <location filename="UI/Cell.qml" line="29"/>
         <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -61,14 +61,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/DialogTemplate.qml" line="20"/>
-        <location filename="UI/DialogTemplate.qml" line="20"/>
+        <location filename="UI/DialogTemplate.qml" line="26"/>
+        <location filename="UI/DialogTemplate.qml" line="26"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/DialogTemplate.qml" line="21"/>
-        <location filename="UI/DialogTemplate.qml" line="21"/>
+        <location filename="UI/DialogTemplate.qml" line="27"/>
+        <location filename="UI/DialogTemplate.qml" line="27"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -87,6 +87,15 @@
     <message>
         <location filename="UI/FileInputRow.qml" line="9"/>
         <location filename="UI/FileInputRow.qml" line="9"/>
+        <source>Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImageRow</name>
+    <message>
+        <location filename="UI/ImageRow.qml" line="9"/>
+        <location filename="UI/ImageRow.qml" line="9"/>
         <source>Row</source>
         <translation type="unfinished"></translation>
     </message>
@@ -180,8 +189,8 @@
 <context>
     <name>SkillBuilderUI</name>
     <message>
-        <location filename="UI/SkillBuilderUI.qml" line="46"/>
-        <location filename="UI/SkillBuilderUI.qml" line="46"/>
+        <location filename="UI/SkillBuilderUI.qml" line="42"/>
+        <location filename="UI/SkillBuilderUI.qml" line="42"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -192,6 +201,45 @@
         <location filename="UI/SkillCreationDialog.qml" line="5"/>
         <location filename="UI/SkillCreationDialog.qml" line="5"/>
         <source>New skill creation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SkillEditDialog</name>
+    <message>
+        <location filename="UI/SkillEditDialog.qml" line="7"/>
+        <location filename="UI/SkillEditDialog.qml" line="7"/>
+        <source>Skill info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillEditDialog.qml" line="72"/>
+        <location filename="UI/SkillEditDialog.qml" line="72"/>
+        <source>Proto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillEditDialog.qml" line="84"/>
+        <location filename="UI/SkillEditDialog.qml" line="84"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillEditDialog.qml" line="94"/>
+        <location filename="UI/SkillEditDialog.qml" line="94"/>
+        <source>Icon path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillEditDialog.qml" line="101"/>
+        <location filename="UI/SkillEditDialog.qml" line="101"/>
+        <source>Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillEditDialog.qml" line="113"/>
+        <location filename="UI/SkillEditDialog.qml" line="113"/>
+        <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -207,9 +255,39 @@
 <context>
     <name>SkillInfoDialog</name>
     <message>
-        <location filename="UI/SkillInfoDialog.qml" line="5"/>
-        <location filename="UI/SkillInfoDialog.qml" line="5"/>
+        <location filename="UI/SkillInfoDialog.qml" line="6"/>
+        <location filename="UI/SkillInfoDialog.qml" line="6"/>
         <source>Skill info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillInfoDialog.qml" line="55"/>
+        <location filename="UI/SkillInfoDialog.qml" line="55"/>
+        <source>Proto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillInfoDialog.qml" line="67"/>
+        <location filename="UI/SkillInfoDialog.qml" line="67"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillInfoDialog.qml" line="78"/>
+        <location filename="UI/SkillInfoDialog.qml" line="78"/>
+        <source>Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillInfoDialog.qml" line="85"/>
+        <location filename="UI/SkillInfoDialog.qml" line="85"/>
+        <source>Icon path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillInfoDialog.qml" line="99"/>
+        <location filename="UI/SkillInfoDialog.qml" line="99"/>
+        <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -227,6 +305,24 @@
     <message>
         <location filename="UI/TextInputRow.qml" line="11"/>
         <location filename="UI/TextInputRow.qml" line="11"/>
+        <source>Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextLineRow</name>
+    <message>
+        <location filename="UI/TextLineRow.qml" line="9"/>
+        <location filename="UI/TextLineRow.qml" line="9"/>
+        <source>Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextRow</name>
+    <message>
+        <location filename="UI/TextRow.qml" line="9"/>
+        <location filename="UI/TextRow.qml" line="9"/>
         <source>Row</source>
         <translation type="unfinished"></translation>
     </message>
