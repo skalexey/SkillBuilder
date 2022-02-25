@@ -11,6 +11,10 @@ Item {
 	property int cellIndex: DelegateModel.itemsIndex
 	property var attachedSkill: null
 
+	function log(msg) {
+		console.log("Cell: " + msg);
+	}
+
 	function removeCell() {
 		var m = attachedSkill.model;
 		function job() {
@@ -21,15 +25,19 @@ Item {
 		}
 
 		if (m.get("children").size() > 0)
-			messageDialog.show(qsTr("Warning!"), qsTr("The skill '" + m.get("name") + "' has child skills. Do you want to remove it with all its children?"), function() {
-				job();
-			});
+			messageDialog.show(
+				qsTr("Warning!")
+				, qsTr("The skill '" + m.get("name").value + "' has child skills. Do you want to remove it with all its children?")
+				, function() {
+					job();
+				}
+				, function() {});
 		else
 			job();
 	}
 
-	function log(msg) {
-		console.log("Cell: " + msg);
+	function showInfo() {
+		skillInfoDialog.show(attachedSkill.model);
 	}
 
 	MouseArea {
@@ -57,13 +65,46 @@ Item {
 		Menu {
 			id: contextMenu
 			MenuItem {
-				text: "Move"
-				onClicked: moveCell()
+				text: "Info"
+				onClicked: showInfo()
+			}
+			Menu {
+				id: addMenu
+				title: "Add"
+				Instantiator {
+					model: skillLibraryModel.listModel
+					onObjectAdded: function(i, o) {
+						addMenu.insertItem(i, o);
+					}
+					onObjectRemoved: function(o) {
+						addMenu.removeItem(o);
+					}
+					delegate: MenuItem {
+						text: value.get("name").value
+						onTriggered: function() {
+							placingStrategy.showPlaceSuggestions(grid, root);
+							var targetCell = placingStrategy.getAutoPlaceSuggestion();
+							if (!targetCell)
+							{
+								messageDialog.show("", "No place to put the skill");
+								return;
+							}
+							var coord = logic.getCoord(targetCell.cellIndex);
+							var newModel = attachedSkill.addChild(value, coord);
+							logic.placeSkill(grid, newModel, function(createdItem) {
+								targetCell.attachedSkill = createdItem;
+							});
+							dmbModel.store();
+							placingStrategy.hidePlaceSuggestions();
+						}
+					}
+				}
 			}
 			MenuItem {
 				text: "Remove"
 				onClicked: removeCell()
 			}
+
 		}
 
 		drag.target: attachedSkill

@@ -89,14 +89,26 @@ InteractiveListElement {
 	}
 
 	function editSkill() {
-		skillInfoDialog.show(skill.model);
+		skillEditDialog.show(skill.model);
 	}
 
 	menuModel: ListModel {
 		ListElement {
+			title: "Info"
+			cmd: function(i) {
+				skillInfoDialog.show(skill.model);
+			}
+		}
+		ListElement {
 			title: "Edit"
 			cmd: function(i) {
 				editSkill();
+			}
+		}
+		ListElement {
+			title: "New from this"
+			cmd: function(i) {
+				skillCreationDialog.show(skill.model);
 			}
 		}
 		ListElement {

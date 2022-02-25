@@ -3,11 +3,13 @@ import QtQuick.Controls
 
 DialogTemplate {
 	id: dialog
+
 	title: qsTr("Skill info")
-	height: 400
+	height: 500
 
 	property alias name: name
 	property alias iconPath: iconPath
+	property alias description: description
 	property var model: null
 
 	QtObject {
@@ -23,21 +25,36 @@ DialogTemplate {
 		return model ? model.get("proto").get("name").value : "";
 	}
 
-	show: function(skillModel) {
+	property var skillEditDialog_show: function(skillModel) {
 		model = skillModel;
-		oneBtn = true;
 		dialogTemplate_show();
+		name.textInput.forceActiveFocus();
 	}
 
-	onClosed: function() {
+	show: skillEditDialog_show
+
+	property var skillEditDialog_onClosed: function() {
 		model = null;
 	}
 
+	onClosed: skillEditDialog_onClosed
+
 	onShow: function() {
 		dialogTemplate_onShow();
+		if (model) {
+			name.enteredText = model.get("name").value
+			iconPath.chosenFilePath = model.get("iconPath").value
+			description.enteredText = model.get("description").value
+		}
 	}
 
 	onOk: function() {
+		if (model) {
+			model.set("name", name.enteredText);
+			model.set("iconPath", iconPath.chosenFilePath);
+			model.set("description", description.enteredText);
+			dmbModel.store();
+		}
 		return true;
 	}
 
@@ -62,10 +79,9 @@ DialogTemplate {
 			}
 		}
 
-		TextLineRow {
+		LineInputRow {
 			id: name
 			title: qsTr("Name")
-			value: getName()
 		}
 
 		Item {
@@ -73,6 +89,13 @@ DialogTemplate {
 			height: 12
 		}
 
+		FileInputRow {
+			id: iconPath
+			title: qsTr("Icon path")
+			onChooseFile: function(url) {
+				dialog.model.set("iconPath", url);
+			}
+		}
 		ImageRow {
 			id: icon
 			title: qsTr("Icon")
@@ -80,32 +103,16 @@ DialogTemplate {
 			height: 100
 		}
 
-		TextLineRow {
-			id: iconPath
-			title: qsTr("Icon path")
-			tooltip: true
-			value: model ? model.get("iconPath").value : ""
-		}
-
 		Item {
 			width: parent.width
 			height: 12
 		}
 
-		Column {
-			width: parent.width
-			Text {
-				id: descriptionLabel
-				text: qsTr("Description")
-			}
-
-			Text {
-				id: textValue
-				width: dialog.width
-				clip: true
-				wrapMode: Text.Wrap
-				text: model ? model.get("description").value : ""
-			}
+		TextInputRow {
+			id: description
+			title: qsTr("Description")
+			//placeholderText: qsTr("Enter description")
 		}
+
 	}
 }

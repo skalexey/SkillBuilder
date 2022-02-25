@@ -30,10 +30,6 @@ Window {
 		}
 	}
 
-	property var onNewSkillClicked: function() {
-		skillCreationDialog.show();
-	}
-
 	Screen01 {
 		Rectangle {
 			id: topBlock
@@ -76,6 +72,10 @@ Window {
 
 	SkillInfoDialog {
 		id: skillInfoDialog
+	}
+
+	SkillEditDialog {
+		id: skillEditDialog
 	}
 
 	DialogMessage {

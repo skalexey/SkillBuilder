@@ -30,5 +30,10 @@
 <file>./SkillInLibrary.qml</file>
 <file>./SkillLibrary.qml</file>
 <file>./TextInputRow.qml</file>
+<file>./SkillEditDialog.qml</file>
+<file>./DialogBottomRow.qml</file>
+<file>./ImageRow.qml</file>
+<file>./TextLineRow.qml</file>
+<file>./TextRow.qml</file>
 </qresource>
 </RCC>

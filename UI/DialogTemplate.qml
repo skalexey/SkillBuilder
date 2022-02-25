@@ -5,12 +5,18 @@ Dialog {
 	id: dialogTemplate
 	title: qsTr("Title")
 
+	property bool oneBtn: false
+
 	property alias bodyBlock: bodyBlock
 
 	property var dialogTemplate_onShow: function() {
 
 	}
 	property var dialogTemplate_show: function() {
+		if (oneBtn)
+			bottomRow.stateOneButton();
+		else
+			bottomRow.stateTwoButtons();
 		visible = true;
 		if (onShow)
 			onShow();
@@ -20,20 +26,21 @@ Dialog {
 	property string buttonOkText: qsTr("Ok")
 	property string buttonCancelText: qsTr("Cancel")
 	property var dialogTemplate_onOk: function() {
-		//console.log("DialogTemplate.onOk default handler");
+		//console.log("dialogTemplate_onOk default handler");
 		return true;
 	}
 
 	property var dialogTemplate_onCancel: function() {
-		//console.log("DialogTemplate.onCancel default handler");
+		//console.log("dialogTemplate_onCancel default handler");
+	}
+
+	property var dialogTemplate_onClosed: function() {
+		//console.log("dialogTemplate_onClosed default handler");
 	}
 
 	property var onOk: dialogTemplate_onOk
 	property var onCancel: dialogTemplate_onCancel
-
-	onClosed: function() {
-		//console.log("DialogTemplate.onClosed default handler");
-	}
+	onClosed: dialogTemplate_onClosed
 
 	modal: true
 	x: parent.width / 2 - width / 2
@@ -47,32 +54,9 @@ Dialog {
 		height: parent.height - bottomRow.height
 	}
 
-	Item {
+	DialogBottomRow {
 		id: bottomRow
-		width: parent.width;
-		height: cancelButton.height
-		anchors.bottom: parent.bottom
-		Button {
-			id: okButton
-			text: buttonOkText
-			width: parent.width / 2 - 20;
-			anchors.left: parent.left
-			onClicked: function(mouse) {
-				var result = onOk();
-				if (result === true || typeof result === "undefined")
-					dialogTemplate.close();
-			}
-		}
-		Button {
-			id: cancelButton
-			text: buttonCancelText
-			anchors.right: parent.right
-			width: parent.width / 2 - 20;
-			onClicked: function(mouse) {
-				dialogTemplate.onCancel();
-				dialogTemplate.close();
-			}
-		}
+		dialog: dialogTemplate
 	}
 }
 

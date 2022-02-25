@@ -20,6 +20,15 @@ Row {
 		console.log("Skill: " + msg);
 	}
 
+	property var addChild: function(protoModel, coord)	{
+		var o = dmbModel.createObject();
+		o.setPrototype(protoModel);
+		o.set("x", coord.x);
+		o.set("y", coord.y);
+		o.set("children", dmbModel.createList());
+		return model.get("children").add(o);
+	}
+
 	property var onDropped: function(i, parentModel) {
 		log("onDropped(" + i + ") from '" + origin + "'");
 		var coord = logic.getCoord(i);

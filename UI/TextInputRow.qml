@@ -7,7 +7,7 @@ Column {
 	height: 200
 	property alias textInput: textInput
 	property alias enteredText: textInput.text
-	property alias placeholderText: textInput.placeholderText
+//	property alias placeholderText: textInput.placeholderText
 	property string title: qsTr("Row")
 
 	Text {
@@ -21,10 +21,10 @@ Column {
 	}
 
 
-	TextArea {
+	TextEdit {
 		id: textInput
 		height: 100
 		width: parent.width
-		focus: true
+		wrapMode: TextEdit.WordWrap
 	}
 }

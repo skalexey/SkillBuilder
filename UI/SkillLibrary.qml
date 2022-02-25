@@ -25,7 +25,9 @@ Column {
 		footer: Item {
 			Button {
 				text: qsTr("New")
-				onClicked: onNewSkillClicked();
+				onClicked: function() {
+					skillCreationDialog.show();
+				}
 			}
 		}
 	}

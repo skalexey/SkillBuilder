@@ -12,6 +12,8 @@ DialogTemplate {
 			this.onOk = onOk;
 		if (onCancel)
 			this.onCancel = onCancel;
+		else
+			oneBtn = true;
 		dialogTemplate_show();
 	}
 
@@ -30,5 +32,6 @@ DialogTemplate {
 	onClosed: function() {
 		onOk = dialogTemplate_onOk
 		onCancel = dialogTemplate_onCancel
+		oneBtn = false;
 	}
 }
