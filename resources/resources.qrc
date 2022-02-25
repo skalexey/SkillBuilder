@@ -2,8 +2,11 @@
 <qresource>
 <file>./accuracy.png</file>
 <file>./border.png</file>
+<file>./c#.png</file>
+<file>./c++.png</file>
 <file>./database.json</file>
 <file>./development.png</file>
+<file>./java.png</file>
 <file>./learning.png</file>
 <file>./organisation.png</file>
 <file>./productivity.png</file>
