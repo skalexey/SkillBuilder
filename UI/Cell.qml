@@ -8,15 +8,28 @@ Item {
 	height: Constants.cellHeight
 	state: "base"
 	property string cellColor: "#dbeeff"
-	property int visualIndex: DelegateModel.itemsIndex
+	property int cellIndex: DelegateModel.itemsIndex
 	property var attachedSkill: null
 
 	function removeCell() {
 		var m = attachedSkill.model;
-		attachedSkill.destroy();
-		attachedSkill = null;
-		m.remove();
-		dmbModel.store();
+		function job() {
+			attachedSkill.destroy();
+			attachedSkill = null;
+			m.remove();
+			dmbModel.store();
+		}
+
+		if (m.get("children").size() > 0)
+			messageDialog.show(qsTr("Warning!"), qsTr("The skill '" + m.get("name") + "' has child skills. Do you want to remove it with all its children?"), function() {
+				job();
+			});
+		else
+			job();
+	}
+
+	function log(msg) {
+		console.log("Cell: " + msg);
 	}
 
 	MouseArea {
@@ -34,12 +47,10 @@ Item {
 		}
 
 		onPressed: function(mouse) {
-			console.log("pressed")
 			processPress(mouse);
 		}
 
 		onPressAndHold: function(mouse){
-			console.log("onPressAndHold")
 			processPress(mouse);
 		}
 
@@ -62,15 +73,26 @@ Item {
 			{
 				if (attachedSkill)
 				{
-					console.log("attachedSkill detached");
+					attachedSkill.originalParent = attachedSkill.parent
 					attachedSkill.parent = grid;
 					attachedSkill.startDrag();
+					placingStrategy.onDragActive(root);
 				}
 			}
 			else
 			{
-				console.log("Cell: skill drag stop");
+				log("skill drag stop " + root);
+				placingStrategy.onDragEnd(root);
 				attachedSkill.stopDrag();
+				if (attachedSkill.didntMove || !attachedSkill.currentCell)
+				{
+					attachedSkill.didntMove = false;
+					attachedSkill.parent = attachedSkill.originalParent;
+					attachedSkill.x = 0;
+					attachedSkill.y = 0;
+					return;
+				}
+
 				attachedSkill.destroy();
 				attachedSkill = null;
 			}
@@ -100,42 +122,33 @@ Item {
 			}
 
 			onEntered: function(drag) {
-				console.log("onEntered(" + visualIndex + ")");
-				cellBg.color = "steelblue";
 				var enteredItem = drag.source as Skill;
-				enteredItem.currentCell = visualIndex;
-				if (attachedSkill)
-					logic.showPlaceSuggestions(grid, root);
-				else if (logic.isSuggestedCell(root))
-					logic.addSuggestionsUser(root);
-				else if (logic.placeSuggestionsActive())
-					logic.hidePlaceSuggestions();
+				enteredItem.currentCell = root;
+				if (!placingStrategy.onCellEntered(root, enteredItem))
+					return;
+				cellBg.color = "steelblue";
 			}
 
 			onExited: function() {
-				console.log("onExited(" + visualIndex + ")");
 				var enteredItem = drag.source as Skill;
 				if (enteredItem)
-				{
-					if (enteredItem.currentCell === visualIndex)
-						enteredItem.currentCell = -1;
-				}
+					if (enteredItem.currentCell === root)
+						enteredItem.currentCell = null;
 				onDragEnd();
-				if (logic.isTheOnlySuggestionsUser(root))
-					logic.hidePlaceSuggestions(true);
-				else
-					logic.removeSuggestionsUser(root);
+				placingStrategy.onCellExited(root, enteredItem);
 			}
 
 			onDropped: function(drop) {
-				console.log("Dropped at " + visualIndex);
-				onDragEnd();
-				logic.hidePlaceSuggestions();
 				var skillItem = (drop.source as Skill);
-				skillItem.onDropped(visualIndex);
-				logic.placeSkill(grid, skillItem.model, function(createdItem) {
-					attachedSkill = createdItem;
-				});
+				if (!placingStrategy.onItemDropped(root, skillItem))
+				{
+					placingStrategy.hidePlaceSuggestions();
+					onDragEnd();
+					skillItem.didntMove = true;
+					return;
+				}
+
+				onDragEnd();
 			}
 		}
 	}

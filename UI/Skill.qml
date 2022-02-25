@@ -5,23 +5,40 @@ import SkillBuilderUI 1.0
 Row {
 	id: skill
 	property var model
-	property int currentCell: -1
+	property var currentCell: null
 	property string origin: "unknown"
+	property var originalParent: null
+	property bool didntMove: false
+	property var stateParent: function() {
+		state = "parent";
+	}
+	property var stateBase: function() {
+		state = "base";
+	}
 
-	property var onDropped: function(i) {
-		console.log("Skill.onDropped(" + i + ") from '" + origin + "'");
+	function log(msg) {
+		console.log("Skill: " + msg);
+	}
+
+	property var onDropped: function(i, parentModel) {
+		log("onDropped(" + i + ") from '" + origin + "'");
 		var coord = logic.getCoord(i);
-
+		if (!parentModel)
+			log("onDropped: Error! No parent model specified")
+		var finalParentModel = parentModel ? parentModel : rootSkillModel.get("children");
 		if (origin === "library")
 		{
 			var o = dmbModel.createObject();
 			o.setPrototype(model);
 			o.set("x", coord.x);
 			o.set("y", coord.y);
-			model = rootSkillModel().get("children").add(o);
+			o.set("children", dmbModel.createList());
+			model = finalParentModel.add(o);
 		}
 		else
 		{
+			if (model.parent !== finalParentModel)
+				model.parent = finalParentModel;
 			model.set("x", coord.x);
 			model.set("y", coord.y);
 		}
@@ -29,7 +46,7 @@ Row {
 	}
 
 	function activeChanged() {
-		console.log("connected activeChanged(" + Drag.active + ") invoked");
+		log("connected activeChanged(" + Drag.active + ") invoked");
 		if (Drag.active)
 			Drag.start();
 		else
@@ -46,7 +63,7 @@ Row {
 	property var connectedDragHandler: null
 
 	property var startDrag: function(dragHandler) {
-		console.log("Skill.startDrag()")
+		log("startDrag()");
 		if (dragHandler)
 		{
 			Drag.active = Qt.binding(function() {
@@ -60,7 +77,7 @@ Row {
 	}
 
 	property var stopDrag: function() {
-		console.log("Skill.stopDrag()")
+		log("stopDrag()")
 		Drag.drop();
 	}
 
@@ -72,6 +89,14 @@ Row {
 		width: 64
 		height: 64
 		anchors.verticalCenter: parent.verticalCenter
+
+		Rectangle {
+			id: parentIndicator
+			width: parent.width
+			height: parent.height
+			color: "#a9fc7a"
+			visible: false
+		}
 
 		Image {
 			id: image
@@ -97,4 +122,17 @@ Row {
 		text: model.get("name").value
 		anchors.verticalCenter: parent.verticalCenter
 	}
+	states: [
+		State {
+			name: "base"
+		},
+		State {
+			name: "parent"
+
+			PropertyChanges {
+				target: parentIndicator
+				visible: true
+			}
+		}
+	]
 }

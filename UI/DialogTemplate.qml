@@ -2,8 +2,11 @@ import QtQuick
 import QtQuick.Controls
 
 Dialog {
-	id: dialog
+	id: dialogTemplate
 	title: qsTr("Title")
+
+	property alias bodyBlock: bodyBlock
+
 	property var dialogTemplate_onShow: function() {
 
 	}
@@ -16,13 +19,17 @@ Dialog {
 	property var show: dialogTemplate_show
 	property string buttonOkText: qsTr("Ok")
 	property string buttonCancelText: qsTr("Cancel")
-	property var onOk: function() {
+	property var dialogTemplate_onOk: function() {
 		//console.log("DialogTemplate.onOk default handler");
 		return true;
 	}
-	property var onCancel: function() {
+
+	property var dialogTemplate_onCancel: function() {
 		//console.log("DialogTemplate.onCancel default handler");
 	}
+
+	property var onOk: dialogTemplate_onOk
+	property var onCancel: dialogTemplate_onCancel
 
 	onClosed: function() {
 		//console.log("DialogTemplate.onClosed default handler");
@@ -35,7 +42,13 @@ Dialog {
 	height: 220
 
 	Item {
-		id: row
+		id: bodyBlock
+		width: parent.width
+		height: parent.height - bottomRow.height
+	}
+
+	Item {
+		id: bottomRow
 		width: parent.width;
 		height: cancelButton.height
 		anchors.bottom: parent.bottom
@@ -45,8 +58,9 @@ Dialog {
 			width: parent.width / 2 - 20;
 			anchors.left: parent.left
 			onClicked: function(mouse) {
-				if (onOk())
-					dialog.close();
+				var result = onOk();
+				if (result === true || typeof result === "undefined")
+					dialogTemplate.close();
 			}
 		}
 		Button {
@@ -55,8 +69,8 @@ Dialog {
 			anchors.right: parent.right
 			width: parent.width / 2 - 20;
 			onClicked: function(mouse) {
-				onCancel();
-				dialog.close();
+				dialogTemplate.onCancel();
+				dialogTemplate.close();
 			}
 		}
 	}

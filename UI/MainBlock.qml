@@ -8,6 +8,9 @@ Row {
 	height: parent.height
 	visible: false
 
+	property alias field: field
+	property alias grid: field.grid
+
 	Item {
 		id: leftBlock
 		width: parent.width * 0.25

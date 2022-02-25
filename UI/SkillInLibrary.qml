@@ -46,7 +46,7 @@ InteractiveListElement {
 			if (!drag.active)
 			{
 				var item = drag.target as Skill;
-//						if (item.currentCell < 0)
+//						if (item.currentCell.cellIndex < 0)
 					logic.destroyDraggableItem(drag);
 //						else
 //							logic.stopDrag(drag);
@@ -69,13 +69,22 @@ InteractiveListElement {
 	}
 
 	function removeSkill() {
-		// TODO: replace rootSkillModel() with rootSkillModel
-		if (logic.hasSkill(skill.model, rootSkillModel()))
-			dialogRemoveSkillWarning.show(skill.model);
+		var m = skill.model;
+		var job = function() {
+			m.remove();
+			dmbModel.store();
+		}
+
+		if (logic.hasSkill(m, rootSkillModel))
+			messageDialog.show(qsTr("Warning!")
+				, qsTr("Skill '" + m.get("name").value + "' has instances in the field. Do you really want to remove it with all it's instances?")
+				, function() {
+				   logic.removeAllSkillsOfType(m, rootSkillModel);
+				   job();
+				});
 		else
 		{
-			skill.model.remove();
-			dmbModel.store();
+			job();
 		}
 	}
 

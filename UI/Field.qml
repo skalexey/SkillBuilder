@@ -8,6 +8,9 @@ ScrollView {
 	height: parent.height
 	clip: true
 
+	property alias grid: grid
+	property alias gg: grid
+
 	Grid {
 		id: grid
 		anchors.margins: 5
@@ -25,31 +28,7 @@ ScrollView {
 	}
 
 	Component.onCompleted: function() {
-		var rootSkill = rootSkillModel();
-		if (rootSkill)
-		{
-			var rootSkillList = rootSkill.get("children");
-			if (rootSkillList)
-			{
-				var listModel = rootSkillList.listModel;
-				var sz = listModel.rowCount();
-				console.log(sz + " skills in the tree");
-				for (var i = 0; i < sz; i++)
-				{
-					var m = listModel.at(i);
-					console.log("Iterate skill in the tree: '" + m.get("name").value + "' at position " + m.get("x").value + ", " + m.get("y").value);
-					logic.placeSkill(grid, m);
-				}
-			}
-			else
-			{
-				console.log("Error! There is no 'children' field in the rootSkill node");
-			}
-		}
-		else
-		{
-			console.log("Error! There is no skill tree (rootSkill) in the content");
-		}
+		logic.placeSkillsOnField(grid, rootSkillModel);
 	}
 }
 

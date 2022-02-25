@@ -3,23 +3,25 @@ import SkillBuilderUI 1.0
 import QtQuick.Controls
 import QtQuick.Window
 import QVL 1.0
+import SkillBuilderUI
 import "logic.js" as Logic
+import "compactPlacingStrategy.js" as PlacingStrategy
 
-Item {
+Window {
 	id: root
 	width: Constants.width
 	height: Constants.height
-//	visible: true
-//	title: "SkillBuilder"
+	visible: true
+	title: "SkillBuilder"
 
 	property var logic: Logic
+	property var placingStrategy: PlacingStrategy
+	property alias grid: bodyBlock.grid
 	property alias bodyBlock: bodyBlock
 	property var skillLibraryModel: dmbModel.contentModel.get("skillLibrary")
-	property var rootSkillModel: function() {
-		return dmbModel.contentModel.get("rootSkill");
-	}
+	property var rootSkillModel: dmbModel.contentModel.get("rootSkill")
 	property var dmbModel: DMBModel {
-		loadFrom: "designer-database.json"
+		loadFrom: "file:///C:/Users/skoro/Projects/SkillBuilder/resources/database.json"
 		onModelLoaded: function(f) {
 			console.log("Database loaded from '" + currentFile + "'");
 		}
@@ -76,7 +78,7 @@ Item {
 		id: skillInfoDialog
 	}
 
-	DialogRemoveSkillWarning {
-		id: dialogRemoveSkillWarning
+	DialogMessage {
+		id: messageDialog
 	}
 }

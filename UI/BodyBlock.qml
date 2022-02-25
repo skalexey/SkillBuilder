@@ -9,6 +9,8 @@ Item {
 	height: parent.height - topBlock.height - topBlock.y
 	state: "loaded"
 
+	property alias field: mainBlock.field
+	property alias grid: mainBlock.grid
 	property alias mainBlock: mainBlock
 
 	property var stateLoaded: function() {
