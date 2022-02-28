@@ -19,6 +19,10 @@ Item {
 		state = "twoButtons";
 	}
 
+	function stateThreeButtons() {
+		state = "threeButtons";
+	}
+
 	Button {
 		id: okButton
 		visible: false
@@ -30,6 +34,19 @@ Item {
 				dialog.close();
 		}
 	}
+
+	Button {
+		id: noButton
+		visible: false
+		text: buttonNoText
+		anchors.horizontalCenter: parent.horizontalCenter
+		width: parent.width / 3 - 10
+		onClicked: function(mouse) {
+			dialog.onNo();
+			dialog.close();
+		}
+	}
+
 	Button {
 		id: cancelButton
 		visible: false
@@ -62,6 +79,29 @@ Item {
 				target: okButton
 				visible: true
 				anchors.left: parent.left
+			}
+		},
+
+		State {
+			name: "threeButtons"
+			PropertyChanges {
+				target: cancelButton
+				visible: true
+				anchors.right: parent.right
+				width: parent.width / 3 - 10;
+			}
+
+			PropertyChanges {
+				target: okButton
+				visible: true
+				anchors.left: parent.left
+				width: parent.width / 3 - 10;
+			}
+
+			PropertyChanges {
+				target: noButton
+				visible: true
+				width: parent.width / 3 - 10;
 			}
 		}
 	]
