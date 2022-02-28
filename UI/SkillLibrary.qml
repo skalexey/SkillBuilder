@@ -12,22 +12,32 @@ Column {
 		anchors.horizontalCenter: parent.horizontalCenter
 	}
 
-	InteractiveListView {
-		id: skillLibraryList
+	ScrollView {
+		id: scrollView
 		width: parent.width
-		highlightEnabled: false
-		implicitHeight: contentItem.childrenRect.height
-		model: skillLibraryModel.listModel
+		height: parent.height - skillLibraryTitle.height
+		//clip: true // Breaks z-order
+		contentHeight: skillLibraryList.childrenRect.height
+		InteractiveListView {
+			id: skillLibraryList
+			width: parent.width
+			highlightEnabled: false
+			implicitHeight: childrenRect.height
+			model: skillLibraryModel.listModel
 
-		delegate: SkillInLibrary {
-			container: skillLibraryList
-		}
-		footer: Item {
-			Button {
-				text: qsTr("New")
-				onClicked: function() {
-					skillCreationDialog.show();
+			delegate: SkillInLibrary {
+				container: skillLibraryList
+			}
+			footer: Item {
+				id: footerItem
+				Button {
+					id: btnNew
+					text: qsTr("New")
+					onClicked: function() {
+						skillCreationDialog.show();
+					}
 				}
+				height: btnNew.height
 			}
 		}
 	}

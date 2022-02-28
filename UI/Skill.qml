@@ -2,8 +2,40 @@ import QtQuick
 import QtQuick.Controls
 import SkillBuilderUI 1.0
 
-Row {
+Item {
 	id: skill
+	width: 64
+	height: 64
+	z: 1
+	//anchors.verticalCenter: parent.verticalCenter
+
+	Rectangle {
+		id: parentIndicator
+		width: parent.width
+		height: parent.height
+		color: "#a9fc7a"
+		visible: false
+	}
+
+	Image {
+		id: image
+		width: 54
+		height: 54
+		anchors.verticalCenter: parent.verticalCenter
+		source: model.get("iconPath").value
+		anchors.horizontalCenter: parent.horizontalCenter
+		fillMode: Image.PreserveAspectFit
+	}
+
+	BorderImage {
+		id: borderImage
+		width: parent.width
+		height: parent.height
+		anchors.verticalCenter: parent.verticalCenter
+		source: model.get("frameImgPath").value
+		anchors.horizontalCenter: parent.horizontalCenter
+	}
+
 	property var model
 	property var currentCell: null
 	property string origin: "unknown"
@@ -90,47 +122,6 @@ Row {
 		Drag.drop();
 	}
 
-	width: parent.width
-	height: 80
-
-	Item {
-		id: icon
-		width: 64
-		height: 64
-		anchors.verticalCenter: parent.verticalCenter
-
-		Rectangle {
-			id: parentIndicator
-			width: parent.width
-			height: parent.height
-			color: "#a9fc7a"
-			visible: false
-		}
-
-		Image {
-			id: image
-			width: 54
-			height: 54
-			anchors.verticalCenter: parent.verticalCenter
-			source: model.get("iconPath").value
-			anchors.horizontalCenter: parent.horizontalCenter
-			fillMode: Image.PreserveAspectFit
-		}
-
-		BorderImage {
-			id: borderImage
-			width: parent.width
-			height: parent.height
-			anchors.verticalCenter: parent.verticalCenter
-			source: model.get("frameImgPath").value
-			anchors.horizontalCenter: parent.horizontalCenter
-		}
-	}
-
-	Text {
-		text: model.get("name").value
-		anchors.verticalCenter: parent.verticalCenter
-	}
 	states: [
 		State {
 			name: "base"
