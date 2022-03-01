@@ -86,10 +86,18 @@ Item {
 		dmbModel.store();
 	}
 
+	function doStartDrag() {
+		Drag.hotSpot.x = skill.width / 2;
+		Drag.hotSpot.y = skill.height / 2;
+		Drag.start();
+	}
+
 	function activeChanged() {
 		log("connected activeChanged(" + Drag.active + ") invoked");
 		if (Drag.active)
-			Drag.start();
+		{
+			doStartDrag();
+		}
 		else
 		{
 			//Drag.drop(); // Works only when the item is not destroyed
@@ -114,7 +122,9 @@ Item {
 			connectedDragHandler = dragHandler;
 		}
 		else
-			Drag.start();
+		{
+			doStartDrag();
+		}
 	}
 
 	property var stopDrag: function() {
