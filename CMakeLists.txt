@@ -83,6 +83,12 @@ endif()
 
 add_custom_command(
     TARGET SkillBuilder PRE_BUILD
+    COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/build_qvl.sh ${CMAKE_CFG_INTDIR} "${CMAKE_CURRENT_SOURCE_DIR}"
+    VERBATIM
+)
+
+add_custom_command(
+    TARGET SkillBuilder PRE_BUILD
     COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/construct_resources_qrc.sh "${CMAKE_CURRENT_SOURCE_DIR}"
     VERBATIM
 )
