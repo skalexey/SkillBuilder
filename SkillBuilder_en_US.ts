@@ -67,14 +67,14 @@
 <context>
     <name>DataModelBuilderUI</name>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="264"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="264"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="277"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="277"/>
         <source>Store</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="271"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="271"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="284"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/DataModelBuilderUI.qml" line="284"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -91,23 +91,25 @@
     </message>
     <message>
         <location filename="dependencies/DataModelBuilder/Client/UI/DialogTemplate.qml" line="28"/>
-        <location filename="UI/DialogTemplate.qml" line="26"/>
+        <location filename="UI/DialogTemplate.qml" line="28"/>
         <location filename="dependencies/DataModelBuilder/Client/UI/DialogTemplate.qml" line="28"/>
-        <location filename="UI/DialogTemplate.qml" line="26"/>
+        <location filename="UI/DialogTemplate.qml" line="28"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dependencies/DataModelBuilder/Client/UI/DialogTemplate.qml" line="29"/>
+        <location filename="UI/DialogTemplate.qml" line="29"/>
         <location filename="dependencies/DataModelBuilder/Client/UI/DialogTemplate.qml" line="29"/>
+        <location filename="UI/DialogTemplate.qml" line="29"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dependencies/DataModelBuilder/Client/UI/DialogTemplate.qml" line="30"/>
-        <location filename="UI/DialogTemplate.qml" line="27"/>
+        <location filename="UI/DialogTemplate.qml" line="30"/>
         <location filename="dependencies/DataModelBuilder/Client/UI/DialogTemplate.qml" line="30"/>
-        <location filename="UI/DialogTemplate.qml" line="27"/>
+        <location filename="UI/DialogTemplate.qml" line="30"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -148,6 +150,11 @@
 <context>
     <name>FontDialog</name>
     <message>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/+Fusion/FontDialog.qml" line="124"/>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/+Imagine/FontDialog.qml" line="148"/>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/+Material/FontDialog.qml" line="122"/>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/+Universal/FontDialog.qml" line="120"/>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialog.qml" line="126"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/+Fusion/FontDialog.qml" line="124"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/+Imagine/FontDialog.qml" line="148"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/+Material/FontDialog.qml" line="122"/>
@@ -160,36 +167,43 @@
 <context>
     <name>FontDialogContent</name>
     <message>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="63"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="63"/>
         <source>Family</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="113"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="113"/>
         <source>Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="159"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="159"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="211"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="211"/>
         <source>Effects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="226"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="226"/>
         <source>Underline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="231"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="231"/>
         <source>Strikeout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="240"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="240"/>
         <source>Sample</source>
         <translation type="unfinished"></translation>
@@ -198,8 +212,8 @@
 <context>
     <name>ImageRow</name>
     <message>
-        <location filename="UI/ImageRow.qml" line="9"/>
-        <location filename="UI/ImageRow.qml" line="9"/>
+        <location filename="UI/ImageRow.qml" line="10"/>
+        <location filename="UI/ImageRow.qml" line="10"/>
         <source>Row</source>
         <translation type="unfinished"></translation>
     </message>
@@ -210,6 +224,36 @@
         <location filename="UI/LineInputRow.qml" line="10"/>
         <location filename="UI/LineInputRow.qml" line="10"/>
         <source>Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ModelPropertyFormattedText</name>
+    <message>
+        <location filename="UI/ModelPropertyFormattedText.qml" line="9"/>
+        <location filename="UI/ModelPropertyFormattedText.qml" line="9"/>
+        <source>Example text</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ModelPropertyFormattedTextWithHint</name>
+    <message>
+        <location filename="UI/ModelPropertyFormattedTextWithHint.qml" line="9"/>
+        <location filename="UI/ModelPropertyFormattedTextWithHint.qml" line="9"/>
+        <source>Example text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/ModelPropertyFormattedTextWithHint.qml" line="27"/>
+        <location filename="UI/ModelPropertyFormattedTextWithHint.qml" line="27"/>
+        <source>Not present</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/ModelPropertyFormattedTextWithHint.qml" line="29"/>
+        <location filename="UI/ModelPropertyFormattedTextWithHint.qml" line="29"/>
+        <source>Inherited</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -273,26 +317,26 @@
 <context>
     <name>PropListBlock</name>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="20"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="20"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="24"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="24"/>
         <source>&lt;Empty&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="28"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="28"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="32"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="32"/>
         <source>own props</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="37"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="37"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="41"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="41"/>
         <source>&lt;Nothing&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="71"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="71"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="75"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/PropListBlock.qml" line="75"/>
         <source>proto props</source>
         <translation type="unfinished"></translation>
     </message>
@@ -300,8 +344,8 @@
 <context>
     <name>SkillBuilderUI</name>
     <message>
-        <location filename="UI/SkillBuilderUI.qml" line="42"/>
-        <location filename="UI/SkillBuilderUI.qml" line="42"/>
+        <location filename="UI/SkillBuilderUI.qml" line="79"/>
+        <location filename="UI/SkillBuilderUI.qml" line="79"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -324,32 +368,44 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillEditDialog.qml" line="72"/>
-        <location filename="UI/SkillEditDialog.qml" line="72"/>
+        <location filename="UI/SkillEditDialog.qml" line="98"/>
+        <location filename="UI/SkillEditDialog.qml" line="98"/>
         <source>Proto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillEditDialog.qml" line="84"/>
-        <location filename="UI/SkillEditDialog.qml" line="84"/>
+        <location filename="UI/SkillEditDialog.qml" line="110"/>
+        <location filename="UI/SkillEditDialog.qml" line="110"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillEditDialog.qml" line="94"/>
-        <location filename="UI/SkillEditDialog.qml" line="94"/>
+        <location filename="UI/SkillEditDialog.qml" line="120"/>
+        <location filename="UI/SkillEditDialog.qml" line="120"/>
         <source>Icon path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillEditDialog.qml" line="101"/>
-        <location filename="UI/SkillEditDialog.qml" line="101"/>
+        <location filename="UI/SkillEditDialog.qml" line="127"/>
+        <location filename="UI/SkillEditDialog.qml" line="127"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillEditDialog.qml" line="113"/>
-        <location filename="UI/SkillEditDialog.qml" line="113"/>
+        <location filename="UI/SkillEditDialog.qml" line="134"/>
+        <location filename="UI/SkillEditDialog.qml" line="134"/>
+        <source>Border icon path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillEditDialog.qml" line="156"/>
+        <location filename="UI/SkillEditDialog.qml" line="156"/>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillEditDialog.qml" line="172"/>
+        <location filename="UI/SkillEditDialog.qml" line="172"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
@@ -357,8 +413,8 @@
 <context>
     <name>SkillInLibrary</name>
     <message>
-        <location filename="UI/SkillInLibrary.qml" line="79"/>
-        <location filename="UI/SkillInLibrary.qml" line="79"/>
+        <location filename="UI/SkillInLibrary.qml" line="91"/>
+        <location filename="UI/SkillInLibrary.qml" line="91"/>
         <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -372,32 +428,44 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillInfoDialog.qml" line="55"/>
-        <location filename="UI/SkillInfoDialog.qml" line="55"/>
+        <location filename="UI/SkillInfoDialog.qml" line="56"/>
+        <location filename="UI/SkillInfoDialog.qml" line="56"/>
         <source>Proto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillInfoDialog.qml" line="67"/>
-        <location filename="UI/SkillInfoDialog.qml" line="67"/>
+        <location filename="UI/SkillInfoDialog.qml" line="68"/>
+        <location filename="UI/SkillInfoDialog.qml" line="68"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillInfoDialog.qml" line="78"/>
-        <location filename="UI/SkillInfoDialog.qml" line="78"/>
+        <location filename="UI/SkillInfoDialog.qml" line="79"/>
+        <location filename="UI/SkillInfoDialog.qml" line="79"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillInfoDialog.qml" line="85"/>
-        <location filename="UI/SkillInfoDialog.qml" line="85"/>
+        <location filename="UI/SkillInfoDialog.qml" line="86"/>
+        <location filename="UI/SkillInfoDialog.qml" line="86"/>
         <source>Icon path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="UI/SkillInfoDialog.qml" line="99"/>
-        <location filename="UI/SkillInfoDialog.qml" line="99"/>
+        <location filename="UI/SkillInfoDialog.qml" line="94"/>
+        <location filename="UI/SkillInfoDialog.qml" line="94"/>
+        <source>Border</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillInfoDialog.qml" line="110"/>
+        <location filename="UI/SkillInfoDialog.qml" line="110"/>
+        <source>Border image path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="UI/SkillInfoDialog.qml" line="127"/>
+        <location filename="UI/SkillInfoDialog.qml" line="127"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
@@ -405,8 +473,8 @@
 <context>
     <name>SkillLibrary</name>
     <message>
-        <location filename="UI/SkillLibrary.qml" line="27"/>
-        <location filename="UI/SkillLibrary.qml" line="27"/>
+        <location filename="UI/SkillLibrary.qml" line="35"/>
+        <location filename="UI/SkillLibrary.qml" line="35"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
@@ -423,8 +491,8 @@
 <context>
     <name>TextLineRow</name>
     <message>
-        <location filename="UI/TextLineRow.qml" line="9"/>
-        <location filename="UI/TextLineRow.qml" line="9"/>
+        <location filename="UI/TextLineRow.qml" line="10"/>
+        <location filename="UI/TextLineRow.qml" line="10"/>
         <source>Row</source>
         <translation type="unfinished"></translation>
     </message>
@@ -450,30 +518,30 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="main.qml" line="11"/>
-        <source>Hello World</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="99"/>
-        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="124"/>
+        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="103"/>
+        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="128"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="101"/>
-        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="126"/>
+        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="105"/>
+        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="130"/>
         <source>Save your work</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="102"/>
+        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="106"/>
         <source>You have unsaved changes. Do you want to save them before creating a new file?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="127"/>
+        <location filename="dependencies/DataModelBuilder/Client/main.qml" line="131"/>
         <source>You have unsaved changes. Do you want to save them before closing?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="main.qml" line="11"/>
+        <source>Hello World</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
