@@ -7,12 +7,16 @@ import SkillBuilderUI
 import "logic.js" as Logic
 import "compactPlacingStrategy.js" as PlacingStrategy
 
-Window {
+// Uncomment this to test dialogs in Qt Design Studio
+// And comment out the following "Item {" declaration
+// Window {
+Item {
 	id: root
 	width: Constants.width
 	height: Constants.height
-	visible: true
-	title: "SkillBuilder"
+	// Uncomment this to test dialogs in Qt Design Studio
+	//visible: true
+	//title: "SkillBuilder"
 
 	property var logic: Logic
 	property var placingStrategy: PlacingStrategy
@@ -20,14 +24,47 @@ Window {
 	property alias bodyBlock: bodyBlock
 	property var skillLibraryModel: dmbModel.contentModel.get("skillLibrary")
 	property var rootSkillModel: dmbModel.contentModel.get("rootSkill")
+
+	QtObject {
+		id: local
+		property string databasePath: "../../resources/database.json"
+		property bool loadError: false;
+		property var modelLoadError: function(error) {
+			if (!local.loadError)
+			{
+				local.loadError = true;
+				dmbModel.store(databasePath);
+				dmbModel.load(databasePath);
+			}
+			else
+				uiRoot.modelLoadError(e);
+		}
+		property var modelLoaded: function(f) {
+			console.log("Database loaded from '" + f + "'");
+		}
+	}
+
+	property var modelLoadError: function(e) {
+		bodyBlock.stateLoadDatabaseError();
+	}
+
 	property var dmbModel: DMBModel {
 		loadFrom: "file:///C:/Users/skoro/Projects/SkillBuilder/resources/database.json"
-		onModelLoaded: function(f) {
-			console.log("Database loaded from '" + currentFile + "'");
+		onModelLoaded:  function(f) {
+			console.log("Database loaded from '" + dmbModel.currentFile + "'");
+			local.modelLoaded(f);
 		}
 		onModelLoadError: function(f, e) {
 			console.log("Database load error: '" + e + "'");
+			local.modelLoadError(f, e);
 		}
+	}
+
+	Component.onCompleted: {
+		if (!dmbModel.isLoaded)
+			local.modelLoadError();
+		//else
+			//bodyBlock.stateLoaded();
 	}
 
 	Screen01 {

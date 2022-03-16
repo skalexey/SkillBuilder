@@ -58,21 +58,19 @@ function onItemDropped(cell, item) {
 	var currentParent = item.model.parent;
 	var parentModel = currentParent;
 	if (cell.attachedSkill)
-		parentModel = cell.attachedSkill.model.get("children");
+		parentModel = cell.attachedSkill.getModel().get("children");
 	else
 	{
 		if (placeSuggestionsActive())
-			parentModel = getPlaceSuggestionsOwner().attachedSkill.model.get("children");
+			parentModel = getPlaceSuggestionsOwner().attachedSkill.getModel();
 		else
 		{
-			var rootChildrenContainer = rootSkillModel.get("children");
-
-			if (currentParent === rootChildrenContainer)
-				parentModel = rootChildrenContainer;
+			if (currentParent === rootSkillModel)
+				parentModel = rootSkillModel;
 			else
 			{
 				if (item.origin === "library")
-					parentModel = rootChildrenContainer;
+					parentModel = rootSkillModel;
 			}
 		}
 	}
@@ -179,6 +177,9 @@ function showPlaceSuggestions(grid, cell) {
 	if (suggestedPlaces.length > 0)
 		hidePlaceSuggestions();
 
+	if (!cell.attachedSkill)
+		return;
+
 	addSuggestionsUser(cell);
 	placeSuggestionsOwner = cell;
 
@@ -213,13 +214,13 @@ function showPlaceSuggestions(grid, cell) {
 			return false;
 	}
 
-	if (furthestChildPlaceSuggestion(cell.attachedSkill.model))
+	if (furthestChildPlaceSuggestion(cell.attachedSkill.getModel()))
 		return;
 	// No children in the attached skill
 	// Check if it has a parent and choose the opposite direction
-	var x = cell.attachedSkill.model.get("x").value;
-	var y = cell.attachedSkill.model.get("y").value;
-	var attachedSkillParent = cell.attachedSkill.model.parent.parent;
+	var x = cell.attachedSkill.getModel().get("x").value;
+	var y = cell.attachedSkill.getModel().get("y").value;
+	var attachedSkillParent = cell.attachedSkill.getModel().parent.parent;
 	if (attachedSkillParent && attachedSkillParent.has("x")) // Not the root
 //		if (furthestChildPlaceSuggestion(attachedSkillParent, true))
 	{

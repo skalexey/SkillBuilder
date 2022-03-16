@@ -16,7 +16,7 @@ Item {
 	}
 
 	function removeCell() {
-		var m = attachedSkill.model;
+		var m = attachedSkill.getModel();
 		function job() {
 			attachedSkill.destroy();
 			attachedSkill = null;
@@ -36,8 +36,14 @@ Item {
 			job();
 	}
 
+	function detachFromParent() {
+		log(this + "->detachFromParent()");
+		attachedSkill.model.parent = rootSkillModel.get("children");
+		dmbModel.store();
+	}
+
 	function showInfo() {
-		skillInfoDialog.show(attachedSkill.model);
+		skillInfoDialog.show(attachedSkill.getModel());
 	}
 
 	MouseArea {
@@ -48,10 +54,13 @@ Item {
 		propagateComposedEvents: true
 
 		function processPress(mouse) {
-			if (!attachedSkill)
-				return;
 			if (mouse.button === Qt.RightButton)
-				contextMenu.popup();
+			{
+				if (!attachedSkill)
+					emptyCellMenu.popup();
+				else
+					filledCellMenu.popup();
+			}
 		}
 
 		onPressed: function(mouse) {
@@ -62,49 +71,12 @@ Item {
 			processPress(mouse);
 		}
 
-		Menu {
-			id: contextMenu
-			MenuItem {
-				text: "Info"
-				onClicked: showInfo()
-			}
-			Menu {
-				id: addMenu
-				title: "Add"
-				Instantiator {
-					model: skillLibraryModel.listModel
-					onObjectAdded: function(i, o) {
-						addMenu.insertItem(i, o);
-					}
-					onObjectRemoved: function(o) {
-						addMenu.removeItem(o);
-					}
-					delegate: MenuItem {
-						text: value.get("name").value
-						onTriggered: function() {
-							placingStrategy.showPlaceSuggestions(grid, root);
-							var targetCell = placingStrategy.getAutoPlaceSuggestion();
-							if (!targetCell)
-							{
-								messageDialog.show("", "No place to put the skill");
-								return;
-							}
-							var coord = logic.getCoord(targetCell.cellIndex);
-							var newModel = attachedSkill.addChild(value, coord);
-							logic.placeSkill(grid, newModel, function(createdItem) {
-								targetCell.attachedSkill = createdItem;
-							});
-							dmbModel.store();
-							placingStrategy.hidePlaceSuggestions();
-						}
-					}
-				}
-			}
-			MenuItem {
-				text: "Remove"
-				onClicked: removeCell()
-			}
+		FilledCellMenu {
+			id: filledCellMenu
+		}
 
+		EmptyCellMenu {
+			id: emptyCellMenu
 		}
 
 		drag.target: attachedSkill

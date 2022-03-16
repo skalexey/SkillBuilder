@@ -9,34 +9,28 @@ Item {
 	z: 1
 	//anchors.verticalCenter: parent.verticalCenter
 
-	Rectangle {
-		id: parentIndicator
-		width: parent.width
-		height: parent.height
-		color: "#a9fc7a"
-		visible: false
+	property var model;
+	onModelChanged: function() {
+		setModel(model);
 	}
 
-	Image {
-		id: image
-		width: 54
-		height: 54
-		anchors.verticalCenter: parent.verticalCenter
-		source: model.get("iconPath").value
-		anchors.horizontalCenter: parent.horizontalCenter
-		fillMode: Image.PreserveAspectFit
+	QtObject {
+		id: local
+		property var model
 	}
 
-	BorderImage {
-		id: borderImage
-		width: parent.width
-		height: parent.height
-		anchors.verticalCenter: parent.verticalCenter
-		source: model.get("frameImgPath").value
-		anchors.horizontalCenter: parent.horizontalCenter
+	property var setModel: function(model) {
+		if (model)
+		{
+			log("setModel " + model + ", " + model.get("name").value);
+			local.model = model;
+		}
 	}
 
-	property var model
+	property var getModel: function() {
+		return local.model;
+	}
+
 	property var currentCell: null
 	property string origin: "unknown"
 	property var originalParent: null
@@ -53,12 +47,7 @@ Item {
 	}
 
 	property var addChild: function(protoModel, coord)	{
-		var o = dmbModel.createObject();
-		o.setPrototype(protoModel);
-		o.set("x", coord.x);
-		o.set("y", coord.y);
-		o.set("children", dmbModel.createList());
-		return model.get("children").add(o);
+		return logic.instantiateSkillIntoSkill(protoModel, local.model, coord);
 	}
 
 	property var onDropped: function(i, parentModel) {
@@ -66,24 +55,44 @@ Item {
 		var coord = logic.getCoord(i);
 		if (!parentModel)
 			log("onDropped: Error! No parent model specified")
-		var finalParentModel = parentModel ? parentModel : rootSkillModel.get("children");
+		var finalParentModel = parentModel ? parentModel : rootSkillModel;
 		if (origin === "library")
-		{
-			var o = dmbModel.createObject();
-			o.setPrototype(model);
-			o.set("x", coord.x);
-			o.set("y", coord.y);
-			o.set("children", dmbModel.createList());
-			model = finalParentModel.add(o);
-		}
+			model = logic.instantiateSkillIntoSkill(local.model, finalParentModel, coord);
 		else
 		{
-			if (model.parent !== finalParentModel)
-				model.parent = finalParentModel;
-			model.set("x", coord.x);
-			model.set("y", coord.y);
+			if (local.model.parent !== finalParentModel)
+				local.model.parent = finalParentModel;
+			local.model.set("x", coord.x);
+			local.model.set("y", coord.y);
 		}
 		dmbModel.store();
+	}
+
+	Rectangle {
+		id: parentIndicator
+		width: parent.width
+		height: parent.height
+		color: "#a9fc7a"
+		visible: false
+	}
+
+	BorderImage {
+		id: borderImage
+		width: parent.width
+		height: parent.height
+		anchors.verticalCenter: parent.verticalCenter
+		source: local.model.get("frameImgPath").value
+		anchors.horizontalCenter: parent.horizontalCenter
+	}
+
+	Image {
+		id: image
+		width: 54
+		height: 54
+		anchors.verticalCenter: parent.verticalCenter
+		source: local.model.get("iconPath").value
+		anchors.horizontalCenter: parent.horizontalCenter
+		fillMode: Image.PreserveAspectFit
 	}
 
 	function doStartDrag() {

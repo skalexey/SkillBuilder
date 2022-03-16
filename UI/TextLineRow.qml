@@ -4,6 +4,7 @@ import QtQuick.Controls
 Row {
 	id: row
 	width: parent.width
+	height: textValue.height
 
 	property alias value: textValue.text
 	property string title: qsTr("Row")

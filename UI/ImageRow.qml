@@ -6,12 +6,31 @@ Row {
 	width: parent.width
 
 	property alias source: image.source
+
 	property string title: qsTr("Row")
 
-	Text {
-		id: textLabel
-		text: title
+	property var recalculate: function() {
+		loader.width = loader.item.width;
+		loader.height = loader.item.height;
+	}
+
+	property var textLabelComponent: Component {
+		id: comp
+		Text {
+			id: textItem
+			text: "dfddfsdsf"
+		}
+	}
+
+	Loader {
+		id: loader
+		sourceComponent: textLabelComponent;
 		anchors.verticalCenter: parent.verticalCenter
+
+		onLoaded: function() {
+			loader.width = loader.item.width;
+			loader.height = loader.item.height;
+		}
 	}
 
 	Item {
@@ -25,5 +44,8 @@ Row {
 		source: source
 		fillMode: Image.PreserveAspectFit
 		height: parent.height
+	}
+
+	Component.onCompleted: function() {
 	}
 }

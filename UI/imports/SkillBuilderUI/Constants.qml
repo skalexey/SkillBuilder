@@ -8,7 +8,7 @@ QtObject {
 	readonly property int cellWidth: 64
 	readonly property int cellHeight: 64
 
-	readonly property int fieldSize: 20
+	readonly property int fieldSize: 10
 
 	property alias fontDirectory: directoryFontLoader.fontDirectory
 	property alias relativeFontDirectory: directoryFontLoader.relativeFontDirectory

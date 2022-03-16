@@ -5,14 +5,19 @@ DialogTemplate {
 	id: dialogTemplate
 	title: ""
 
-	property var show: function(title, message, onOk, onCancel) {
+	property var show: function(title, message, onOk, onCancel, onNo) {
 		this.title = title;
 		this.message = message;
 		if (onOk)
 			this.onOk = onOk;
+		if (onNo)
+		{
+			this.onNo = onNo;
+			threeBtn = true;
+		}
 		if (onCancel)
 			this.onCancel = onCancel;
-		else
+		else if (!onNo)
 			oneBtn = true;
 		dialogTemplate_show();
 	}
@@ -30,8 +35,8 @@ DialogTemplate {
 	}
 
 	onClosed: function() {
-		onOk = dialogTemplate_onOk
-		onCancel = dialogTemplate_onCancel
 		oneBtn = false;
+		threeBtn = false;
+		dialogTemplate_onClosed();
 	}
 }

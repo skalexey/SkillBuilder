@@ -35,5 +35,12 @@
 <file>./ImageRow.qml</file>
 <file>./TextLineRow.qml</file>
 <file>./TextRow.qml</file>
+<file>./ModelPropertyFormattedText.qml</file>
+<file>./ModelPropertyFormattedTextWithHint.qml</file>
+<file>./CellAddSubMenu.qml</file>
+<file>./EmptyCellMenu.qml</file>
+<file>./FilledCellMenu.qml</file>
+<file>./CustomMenuItem.qml</file>
+<file>./NewSkillOnFieldMenuItem.qml</file>
 </qresource>
 </RCC>

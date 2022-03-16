@@ -29,15 +29,26 @@ function isAChildOf(item1, item2) {
 	return false;
 }
 
+function getParentSkillModel(skillItem) {
+	if (!skillItem || !skillItem.model)
+		return null;
+	var parentContainer = skillItem.model.parent;
+	if (!parentContainer)
+		return null;
+	return parentContainer.parent;
+}
+
+function hasParentSkill(skillItem) {
+	var parentSkillModel = getParentSkillModel(skillItem);
+	return parentSkillModel && (parentSkillModel !== rootSkillModel);
+}
+
 function getAttachedSkillParentItem(skillItem, grid) {
 	function getCell(x, y) {
 		var index = getCellIndex(x, y);
 		return grid.children[index];
 	}
-	var parentContainer = skillItem.model.parent;
-	if (!parentContainer)
-		return null;
-	var parentSkillModel = parentContainer.parent;
+	var parentSkillModel = getParentSkillModel(skillItem);
 	if (!parentSkillModel)
 		return null;
 	var xModel = parentSkillModel.get("x");
@@ -159,6 +170,51 @@ function placeSkillsOnField(grid, rootSkillModel) {
 	{
 		log("Error! There is no skill tree (rootSkill) in the content");
 	}
+}
+
+function autoPlaceSkillOnField(protoModel, cell, grid) {
+	var newModel = null;
+	var targetCell = null;
+	var parentModel = null;
+	if (cell.attachedSkill)
+	{
+		placingStrategy.showPlaceSuggestions(grid, cell);
+		targetCell = placingStrategy.getAutoPlaceSuggestion();
+		if (!targetCell)
+		{
+			messageDialog.show("", "No place to put the skill");
+			return;
+		}
+		parentModel = cell.attachedSkill.model;
+	}
+	else
+	{
+		targetCell = cell;
+		parentModel = rootSkillModel;
+	}
+	var coord = logic.getCoord(targetCell.cellIndex);
+	newModel = logic.instantiateSkillIntoSkill(protoModel, parentModel, coord);
+	logic.placeSkill(grid, newModel);
+	dmbModel.store();
+	placingStrategy.hidePlaceSuggestions();
+}
+
+function instantiateSkill(protoModel) {
+	var o = dmbModel.createObject();
+	o.setPrototype(protoModel);
+	o.set("children", dmbModel.createList());
+	return o;
+}
+
+function instantiateSkillIntoSkill(protoModel, parentModel, coord) {
+	var o = instantiateSkill(protoModel);
+	o.set("x", coord.x);
+	o.set("y", coord.y);
+	return parentModel.get("children").add(o);
+}
+
+function instantiateSkillOnField(protoModel, coord) {
+	return instantiateSkillIntoSkill(protoModel, rootSkillModel, coord);
 }
 
 function placeSkill(grid, model, itemOrOnCreated) {

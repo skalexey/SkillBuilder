@@ -8,6 +8,10 @@ InteractiveListElement {
 	width: parent.width
 	height: skill.height
 
+	function log(msg) {
+		console.log("SkillInLibrary: " + msg);
+	}
+
 	Row {
 		MouseArea {
 			id: mouseArea
@@ -34,17 +38,17 @@ InteractiveListElement {
 
 			drag.target: null
 			onPressed: function(mouse) {
-				console.log("Skill in library pressed");
+				log("Skill in library pressed");
 				drag.target = dummyTarget;
 				//mouse.accepted = false;
 			}
 			onReleased: function(mouse) {
-				console.log("Skill cell released");
+				log("Skill cell released");
 				mouse.accepted = false;
 			}
 
 			drag.onActiveChanged: function() {
-				console.log("MouseArea.drag.onActiveChanged(" + drag.active + ")");
+				log("MouseArea.drag.onActiveChanged(" + drag.active + ")");
 				if (!drag.active)
 				{
 					var item = drag.target as Skill;
@@ -70,25 +74,28 @@ InteractiveListElement {
 			}
 		}
 		Text {
-			text: skill.model.get("name").value
+			text: skill.getModel().get("name").value
 			anchors.verticalCenter: parent.verticalCenter
 		}
 	}
 
 	function removeSkill() {
-		var m = skill.model;
+		var m = skill.getModel();
 		var job = function() {
 			m.remove();
 			dmbModel.store();
 		}
 
 		if (logic.hasSkill(m, rootSkillModel))
-			messageDialog.show(qsTr("Warning!")
+			messageDialog.show(
+				qsTr("Warning!")
 				, qsTr("Skill '" + m.get("name").value + "' has instances in the field. Do you really want to remove it with all it's instances?")
 				, function() {
 				   logic.removeAllSkillsOfType(m, rootSkillModel);
 				   job();
-				});
+				}
+				, function(){}
+			);
 		else
 		{
 			job();
@@ -96,14 +103,14 @@ InteractiveListElement {
 	}
 
 	function editSkill() {
-		skillEditDialog.show(skill.model);
+		skillEditDialog.show(skill.getModel());
 	}
 
 	menuModel: ListModel {
 		ListElement {
 			title: "Info"
 			cmd: function(i) {
-				skillInfoDialog.show(skill.model);
+				skillInfoDialog.show(skill.getModel());
 			}
 		}
 		ListElement {
@@ -115,7 +122,7 @@ InteractiveListElement {
 		ListElement {
 			title: "New from this"
 			cmd: function(i) {
-				skillCreationDialog.show(skill.model);
+				skillCreationDialog.show(skill.getModel());
 			}
 		}
 		ListElement {

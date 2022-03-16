@@ -5,7 +5,7 @@ DialogTemplate {
 	id: dialog
 
 	title: qsTr("Skill info")
-	height: 500
+	height: 600
 
 	property alias name: name
 	property alias iconPath: iconPath
@@ -15,6 +15,11 @@ DialogTemplate {
 	QtObject {
 		id: local
 		property var baseShow: show;
+		property var inputModel: null
+	}
+
+	function log(msg) {
+		console.log("SkillEditDialog: " + msg);
 	}
 
 	function getName() {
@@ -26,15 +31,25 @@ DialogTemplate {
 	}
 
 	property var skillEditDialog_show: function(skillModel) {
-		model = skillModel;
-		dialogTemplate_show();
-		name.textInput.forceActiveFocus();
+		if (skillModel)
+		{
+			local.inputModel = skillModel;
+			model = local.inputModel.copy();
+			log("skillEditDialog_show: model: " + model);
+			dialogTemplate_show();
+			name.textInput.forceActiveFocus();
+		}
 	}
 
 	show: skillEditDialog_show
 
 	property var skillEditDialog_onClosed: function() {
-		model = null;
+		if (model)
+		{
+			model.remove();
+			model = null;
+		}
+		local.inputModel = null
 	}
 
 	onClosed: skillEditDialog_onClosed
@@ -46,19 +61,30 @@ DialogTemplate {
 			iconPath.chosenFilePath = model.get("iconPath").value
 			description.enteredText = model.get("description").value
 		}
+		border.recalculate();
 	}
 
 	onOk: function() {
-		if (model) {
-			model.set("name", name.enteredText);
-			model.set("iconPath", iconPath.chosenFilePath);
-			model.set("description", description.enteredText);
+		if (local.inputModel) {
+			if (name.enteredText !== local.inputModel.get("name").value)
+				local.inputModel.set("name", name.enteredText);
+			if (iconPath.chosenFilePath !== local.inputModel.get("iconPath").value)
+				local.inputModel.set("iconPath", iconPath.chosenFilePath);
+			var tmpFrameImgPath = model.getOwn("frameImgPath");
+			if (tmpFrameImgPath && local.inputModel.get("frameImgPath").value !== tmpFrameImgPath.value)
+				local.inputModel.set("frameImgPath", tmpFrameImgPath.value);
+			else if (!tmpFrameImgPath && local.inputModel.hasOwn("frameImgPath"))
+				local.inputModel.removeProp("frameImgPath");
+			if (description.enteredText !== local.inputModel.get("description").value)
+			local.inputModel.set("description", description.enteredText);
 			dmbModel.store();
 		}
 		return true;
 	}
 
 	Column {
+		id : content
+
 		height: parent.height
 		width: parent.width
 
@@ -101,6 +127,39 @@ DialogTemplate {
 			title: qsTr("Icon")
 			source: model ? model.get("iconPath").value : ""
 			height: 100
+		}
+
+		FileInputRow {
+			id: borderPath
+			title: qsTr("Border icon path")
+			onChooseFile: function(url) {
+				dialog.model.set("frameImgPath", url);
+//				resetBtn.visible = Qt.binding(function() {return
+//					dialog.model ? dialog.model.hasOwn("frameImgPath") : false;
+//				});
+			}
+		}
+		ImageRow {
+			id: border
+			property alias resetBtn: resetBtn
+			textLabelComponent: Component {
+					ModelPropertyFormattedTextWithHint {
+					model: dialog.model
+					propId: "frameImgPath"
+					text: "Border"
+				}
+			}
+			source: model ? model.get("frameImgPath").value : ""
+			height: 100
+			Button {
+				id: resetBtn
+				text: qsTr("Reset")
+				onClicked: function() {
+					if (dialog.model)
+						dialog.model.removeProp("frameImgPath");
+				}
+				visible: dialog.model ? dialog.model.hasOwn("frameImgPath") : false
+			}
 		}
 
 		Item {

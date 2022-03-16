@@ -4,7 +4,7 @@ import QtQuick.Controls
 DialogTemplate {
 	id: dialog
 	title: qsTr("Skill info")
-	height: 400
+	height: 600
 
 	property alias name: name
 	property alias iconPath: iconPath
@@ -35,6 +35,7 @@ DialogTemplate {
 
 	onShow: function() {
 		dialogTemplate_onShow();
+		border.recalculate();
 	}
 
 	onOk: function() {
@@ -42,7 +43,7 @@ DialogTemplate {
 	}
 
 	Column {
-		height: parent.height
+		id: content
 		width: parent.width
 
 		Column {
@@ -87,12 +88,39 @@ DialogTemplate {
 			value: model ? model.get("iconPath").value : ""
 		}
 
+		ImageRow {
+			id: border
+
+			title: qsTr("Border")
+
+			textLabelComponent: Component {
+					ModelPropertyFormattedTextWithHint {
+					model: dialog.model
+					propId: "frameImgPath"
+					text: "Border"
+				}
+			}
+
+			source: model ? model.get("frameImgPath").value : ""
+			height: 100
+		}
+
+		TextLineRow {
+			id: borderPath
+			title: qsTr("Border image path")
+			tooltip: true
+			value: model ? model.get("frameImgPath").value : ""
+		}
+
+
+
 		Item {
 			width: parent.width
 			height: 12
 		}
 
 		Column {
+			height: descriptionLabel.height + textValue.height
 			width: parent.width
 			Text {
 				id: descriptionLabel
