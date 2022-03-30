@@ -5,7 +5,6 @@
 #include <QTranslator>
 #include <QQmlContext>
 #include <QObject>
-#include "AppObject.h"
 
 int main(int argc, char *argv[])
 {
@@ -33,8 +32,6 @@ int main(int argc, char *argv[])
 	//	if (!view.errors().isEmpty())
 	//		return -1;
 	//	view.show();
-	AppObject appObject(app);
-	engine.rootContext()->setContextProperty("app", &appObject);
 	engine.addImportPath("qrc:/imports");
 	QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
 					 &app, [url](QObject *obj, const QUrl &objUrl) {
