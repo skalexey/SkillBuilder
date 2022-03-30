@@ -18,7 +18,7 @@ Row {
 		id: comp
 		Text {
 			id: textItem
-			text: "dfddfsdsf"
+			text: title
 		}
 	}
 

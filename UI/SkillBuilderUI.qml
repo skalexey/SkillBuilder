@@ -22,8 +22,8 @@ Item {
 	property var placingStrategy: PlacingStrategy
 	property alias grid: bodyBlock.grid
 	property alias bodyBlock: bodyBlock
-	property var skillLibraryModel: dmbModel.contentModel.get("skillLibrary")
-	property var rootSkillModel: dmbModel.contentModel.get("rootSkill")
+	property var skillLibraryModel: null
+	property var rootSkillModel: null
 
 	QtObject {
 		id: local
@@ -41,6 +41,8 @@ Item {
 		}
 		property var modelLoaded: function(f) {
 			console.log("Database loaded from '" + f + "'");
+			skillLibraryModel = dmbModel.contentModel.get("skillLibrary");
+			rootSkillModel = dmbModel.contentModel.get("rootSkill");
 		}
 	}
 

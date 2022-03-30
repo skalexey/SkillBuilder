@@ -7,7 +7,8 @@ Item {
 	width: Constants.cellHeight;
 	height: Constants.cellHeight
 	state: "base"
-	property string cellColor: "#dbeeff"
+	//property string cellColor: "#dbeeff"
+	property string cellColor: "#f3f1f1"
 	property int cellIndex: DelegateModel.itemsIndex
 	property var attachedSkill: null
 

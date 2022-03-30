@@ -9,7 +9,6 @@ ScrollView {
 	clip: true
 
 	property alias grid: grid
-	property alias gg: grid
 
 	Grid {
 		id: grid
@@ -18,8 +17,8 @@ ScrollView {
 		height: Constants.cellHeight * rows
 		columns: Constants.fieldSize
 		rows: Constants.fieldSize
-		columnSpacing: 1
-		rowSpacing: 1
+		columnSpacing: 0 // 1 // for net-like grid
+		rowSpacing: 0 // 1 // for net-like grid
 
 		Repeater {
 			model: grid.columns * grid.rows;
