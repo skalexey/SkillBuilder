@@ -4,8 +4,8 @@
 <context>
     <name>BodyBlock</name>
     <message>
-        <location filename="dependencies/DataModelBuilder/Client/UI/BodyBlock.qml" line="82"/>
-        <location filename="dependencies/DataModelBuilder/Client/UI/BodyBlock.qml" line="82"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/BodyBlock.qml" line="83"/>
+        <location filename="dependencies/DataModelBuilder/Client/UI/BodyBlock.qml" line="83"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -150,6 +150,11 @@
 <context>
     <name>FontDialog</name>
     <message>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/+Fusion/FontDialog.qml" line="124"/>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/+Imagine/FontDialog.qml" line="148"/>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/+Material/FontDialog.qml" line="122"/>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/+Universal/FontDialog.qml" line="120"/>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialog.qml" line="126"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/+Fusion/FontDialog.qml" line="124"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/+Imagine/FontDialog.qml" line="148"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/+Material/FontDialog.qml" line="122"/>
@@ -167,42 +172,49 @@
 <context>
     <name>FontDialogContent</name>
     <message>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="63"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="63"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="63"/>
         <source>Family</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="113"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="113"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="113"/>
         <source>Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="159"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="159"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="159"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="211"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="211"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="211"/>
         <source>Effects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="226"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="226"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="226"/>
         <source>Underline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="231"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="231"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="231"/>
         <source>Strikeout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="240"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Debug/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="240"/>
         <location filename="dependencies/DataModelBuilder/Client/Build-cmake/Release/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="240"/>
         <source>Sample</source>
@@ -541,7 +553,7 @@
     </message>
     <message>
         <location filename="main.qml" line="11"/>
-        <source>Hello World</source>
+        <source>SkillBuilder</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
