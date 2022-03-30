@@ -4,36 +4,68 @@
             "proto": "Skill",
             "children": [
                 {
-                    "proto": "content.skillLibrary.[1]",
-                    "x": 6.0,
-                    "y": 2.0,
+                    "proto": "content.skillLibrary.[2]",
                     "children": [
                         {
-                            "proto": "content.skillLibrary.[0]",
-                            "x": 6.0,
-                            "y": 3.0,
+                            "proto": "content.skillLibrary.[1]",
+                            "x": 2.0,
+                            "y": 2.0,
                             "children": [
                                 {
                                     "proto": "content.skillLibrary.[3]",
-                                    "x": 7.0,
-                                    "y": 3.0,
-                                    "children": []
+                                    "children": [],
+                                    "x": 3.0,
+                                    "y": 2.0
                                 },
                                 {
-                                    "proto": "content.skillLibrary.[2]",
-                                    "x": 8.0,
-                                    "y": 3.0,
-                                    "children": []
+                                    "proto": "content.skillLibrary.[5]",
+                                    "children": [],
+                                    "x": 4.0,
+                                    "y": 2.0
                                 },
                                 {
                                     "proto": "content.skillLibrary.[4]",
-                                    "x": 9.0,
-                                    "y": 3.0,
-                                    "children": []
+                                    "children": [],
+                                    "x": 5.0,
+                                    "y": 2.0
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "x": 2.0,
+                    "y": 1.0
+                },
+                {
+                    "proto": "content.skillLibrary.[0]",
+                    "children": [],
+                    "x": 2.0,
+                    "y": 4.0
+                },
+                {
+                    "proto": "content.skillLibrary.[7]",
+                    "children": [
+                        {
+                            "proto": "content.skillLibrary.[8]",
+                            "children": [
+                                {
+                                    "proto": "content.skillLibrary.[9]",
+                                    "children": [],
+                                    "x": 6.0,
+                                    "y": 7.0
+                                }
+                            ],
+                            "x": 6.0,
+                            "y": 6.0
+                        },
+                        {
+                            "proto": "content.skillLibrary.[6]",
+                            "children": [],
+                            "x": 5.0,
+                            "y": 6.0
+                        }
+                    ],
+                    "x": 4.0,
+                    "y": 6.0
                 }
             ]
         },
@@ -42,44 +74,69 @@
                 "proto": "Skill",
                 "description": "",
                 "name": "Accuracy",
-                "iconPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/accuracy.png"
+                "iconPath": "accuracy.png"
             },
             {
                 "proto": "Skill",
                 "description": "The Programming skill",
                 "name": "Programming",
-                "iconPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/programming.jpg"
+                "iconPath": "programming.jpg"
             },
             {
                 "proto": "Skill",
                 "description": "The Development skill",
                 "name": "Development",
-                "iconPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/development.png"
+                "iconPath": "development.png"
             },
             {
                 "proto": "Skill",
                 "description": "",
                 "name": "C++",
-                "iconPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/c++.png"
+                "iconPath": "c++.png"
             },
             {
                 "proto": "",
                 "description": "This is a Java skill. Shows how much you know the Java language",
                 "name": "Java",
-                "iconPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/java.png"
+                "iconPath": "java.png"
             },
             {
                 "proto": "content.skillLibrary.[0]",
                 "description": "The C# skill",
-                "iconPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/c%23.png",
+                "iconPath": "c%23.png",
                 "name": "C#"
+            },
+            {
+                "proto": "Skill",
+                "description": "This is a Productivity skill",
+                "iconPath": "productivity.png",
+                "name": "Productivity"
+            },
+            {
+                "proto": "Skill",
+                "description": "Organisation skill includes such abilities as Learning and Discipline",
+                "iconPath": "organisation.png",
+                "name": "Organisation"
+            },
+            {
+                "proto": "Skill",
+                "description": "The Learning skill",
+                "iconPath": "learning.png",
+                "frameImgPath": "border.png",
+                "name": "Learning"
+            },
+            {
+                "proto": "content.skillLibrary.[8]",
+                "description": "The Reading skill",
+                "iconPath": "reading.png",
+                "name": "Reading"
             }
         ]
     },
     "types": {
         "Skill": {
+            "frameImgPath": "",
             "name": "Skill",
-            "frameImgPath": "file:///C:/Users/skoro/Projects/SkillBuilder/resources/border.png",
             "description": "",
             "iconPath": "",
             "children": []
