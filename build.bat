@@ -3,6 +3,7 @@
 set deps=dependencies\
 set build=Build-cmake
 set buildConfig=Debug
+set buildFolderPrefix=Build
 set cmakeGppArg=
 set gppArg=
 set dmbBranch=dev
@@ -23,6 +24,8 @@ for %%x in (%*) do (
 		set buildConfig=Release
 	)
 )
+
+set build=%buildFolderPrefix%-cmake
 
 echo --- Build config: %buildConfig% ---
 echo --- Check dependencies
