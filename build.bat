@@ -7,7 +7,6 @@ set cmakeGppArg=
 set gppArg=
 set dmbBranch=dev
 
-echo --- Build config: %buildConfig% ---
 set argCount=0
 for %%x in (%*) do (
 	set /A argCount+=1
@@ -25,6 +24,7 @@ for %%x in (%*) do (
 	)
 )
 
+echo --- Build config: %buildConfig% ---
 echo --- Check dependencies
 
 IF not exist %deps% ( mkdir %deps% )
@@ -33,16 +33,6 @@ cd %deps%
 		echo --- Clone DataModelBuilder library from GitHub
 		git clone https://github.com/skalexey/DataModelBuilder.git --branch %dmbBranch%
 	)
-	cd DataModelBuilder\QVL
-		echo --- Build QVL library
-		setlocal
-		call build.bat %*
-		endlocal
-		if not errorlevel 0 (
-			echo --- QVL build failed. Error code: %errorlevel%
-			goto end
-		)
-	cd ..\..
 cd ..
 
 echo --- Build SkillBuilder
