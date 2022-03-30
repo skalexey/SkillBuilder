@@ -51,7 +51,7 @@ Item {
 	}
 
 	property var dmbModel: DMBModel {
-		loadFrom: "file:///C:/Users/skoro/Projects/SkillBuilder/resources/database.json"
+		loadFrom: local.databasePath
 		onModelLoaded:  function(f) {
 			console.log("Database loaded from '" + dmbModel.currentFile + "'");
 			local.modelLoaded(f);
