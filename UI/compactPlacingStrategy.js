@@ -55,10 +55,10 @@ function onItemDropped(cell, item) {
 			return false;
 	}
 
-	var currentParent = item.model.parent;
+	var currentParent = item.model.parent.parent;
 	var parentModel = currentParent;
 	if (cell.attachedSkill)
-		parentModel = cell.attachedSkill.getModel().get("children");
+		parentModel = cell.attachedSkill.getModel();
 	else
 	{
 		if (placeSuggestionsActive())

@@ -60,8 +60,9 @@ Item {
 			model = logic.instantiateSkillIntoSkill(local.model, finalParentModel, coord);
 		else
 		{
-			if (local.model.parent !== finalParentModel)
-				local.model.parent = finalParentModel;
+			var c = finalParentModel.get("children");
+			if (local.model.parent !== c)
+				local.model.parent = c;
 			local.model.set("x", coord.x);
 			local.model.set("y", coord.y);
 		}
