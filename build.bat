@@ -18,7 +18,7 @@ for %%x in (%*) do (
 		set buildFolderPrefix=Build-g++
 	) else if "%%~x" == "no-log" (
 		echo --- 'no-log' option passed. Turn off LOG_ON compile definition
-		set cmakeLogOnArg=
+		rem set cmakeLogOnArg=
 	) else if "%%~x" == "release" (
 		echo --- 'release' option passed. Use Release build type
 		set buildConfig=Release
